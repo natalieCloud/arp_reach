@@ -1,0 +1,5 @@
+arp_msgs/msg/XMLFile xml_file #The filepath for the reach database file
+geometry_msgs/PoseArray[] waypoints #The points along the path that reach has been performed on
+---
+geometry_msgs/PoseArray[] waypoints #The points along the path that reach has been performed on
+Float64[] scores #An ordered list of all the reach scores for each of the waypoints

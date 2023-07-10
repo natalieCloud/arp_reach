@@ -1,0 +1,3 @@
+arp_msgs/msg/PCDFile xml_file #The filepath for the reach points database file
+---
+arp_msgs/msg/XMLFile xml_file #The filepath for the reach results database file
