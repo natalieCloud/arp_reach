@@ -1,0 +1,157 @@
+[0.496s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach']
+[0.496s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fbdb71e3c70>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7fbdb71889d0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7fbdb71889d0>>)
+[0.552s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.552s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.552s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.552s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.552s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.552s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach'
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extensions ['ignore', 'ignore_ament_install']
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'ignore'
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'ignore_ament_install'
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extensions ['colcon_pkg']
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'colcon_pkg'
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extensions ['colcon_meta']
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'colcon_meta'
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extensions ['ros']
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'ros'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extensions ['cmake', 'python']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'cmake'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'python'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extensions ['python_setup_py']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach) by extension 'python_setup_py'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/log) by extensions ['ignore', 'ignore_ament_install']
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/log) by extension 'ignore'
+[0.568s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/log) ignored
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extensions ['ignore', 'ignore_ament_install']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'ignore'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'ignore_ament_install'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extensions ['colcon_pkg']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'colcon_pkg'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extensions ['colcon_meta']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'colcon_meta'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extensions ['ros']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'ros'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extensions ['cmake', 'python']
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'cmake'
+[0.569s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'python'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extensions ['python_setup_py']
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src) by extension 'python_setup_py'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extensions ['ignore', 'ignore_ament_install']
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'ignore'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'ignore_ament_install'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extensions ['colcon_pkg']
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'colcon_pkg'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extensions ['colcon_meta']
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'colcon_meta'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extensions ['ros']
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'ros'
+[0.570s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extensions ['cmake', 'python']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'cmake'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'python'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extensions ['python_setup_py']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources) by extension 'python_setup_py'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extensions ['ignore', 'ignore_ament_install']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'ignore'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'ignore_ament_install'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extensions ['colcon_pkg']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'colcon_pkg'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extensions ['colcon_meta']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'colcon_meta'
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extensions ['ros']
+[0.571s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'ros'
+[0.573s] DEBUG:colcon.colcon_core.package_identification:Failed to parse potential ROS package manifest in'/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20': Error(s) in package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20/package.xml':
+The manifest contains invalid XML:
+no element found: line 1, column 0
+[0.573s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extensions ['cmake', 'python']
+[0.573s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'cmake'
+[0.574s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20) by extension 'python'
+[0.574s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_deployment_gp20' with type 'cmake' and name 'arp_deployment_gp20'
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extension 'ignore'
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extension 'ignore_ament_install'
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extensions ['colcon_pkg']
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extension 'colcon_pkg'
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extensions ['colcon_meta']
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extension 'colcon_meta'
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extensions ['ros']
+[0.575s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs) by extension 'ros'
+[0.578s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_msgs' with type 'ros.ament_cmake' and name 'arp_msgs'
+[0.578s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extensions ['ignore', 'ignore_ament_install']
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'ignore'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'ignore_ament_install'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extensions ['colcon_pkg']
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'colcon_pkg'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extensions ['colcon_meta']
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'colcon_meta'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extensions ['ros']
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'ros'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extensions ['cmake', 'python']
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'cmake'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'python'
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extensions ['python_setup_py']
+[0.579s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach) by extension 'python_setup_py'
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extensions ['ignore', 'ignore_ament_install']
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extension 'ignore'
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extension 'ignore_ament_install'
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extensions ['colcon_pkg']
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extension 'colcon_pkg'
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extensions ['colcon_meta']
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extension 'colcon_meta'
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extensions ['ros']
+[0.580s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing) by extension 'ros'
+[0.582s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing' with type 'ros.ament_cmake' and name 'pcd_processing'
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extensions ['ignore', 'ignore_ament_install']
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'ignore'
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'ignore_ament_install'
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extensions ['colcon_pkg']
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'colcon_pkg'
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extensions ['colcon_meta']
+[0.582s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'colcon_meta'
+[0.583s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extensions ['ros']
+[0.583s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'ros'
+[0.583s] DEBUG:colcon.colcon_core.package_identification:Failed to parse potential ROS package manifest in'/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config': Error(s) in package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config/package.xml':
+The manifest contains invalid XML:
+no element found: line 1, column 0
+[0.583s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extensions ['cmake', 'python']
+[0.583s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'cmake'
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config) by extension 'python'
+[0.584s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config' with type 'cmake' and name 'reach_config'
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extensions ['ignore', 'ignore_ament_install']
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'ignore'
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'ignore_ament_install'
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extensions ['colcon_pkg']
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'colcon_pkg'
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extensions ['colcon_meta']
+[0.584s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'colcon_meta'
+[0.585s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extensions ['ros']
+[0.585s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'ros'
+[0.585s] DEBUG:colcon.colcon_core.package_identification:Failed to parse potential ROS package manifest in'/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing': Error(s) in package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing/package.xml':
+The manifest contains invalid XML:
+no element found: line 1, column 0
+[0.585s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extensions ['cmake', 'python']
+[0.585s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'cmake'
+[0.586s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing) by extension 'python'
+[0.586s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing' with type 'cmake' and name 'xml_processing'
+[0.586s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extensions ['ignore', 'ignore_ament_install']
+[0.586s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extension 'ignore'
+[0.586s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extension 'ignore_ament_install'
+[0.586s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extensions ['colcon_pkg']
+[0.586s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extension 'colcon_pkg'
+[0.587s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extensions ['colcon_meta']
+[0.587s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extension 'colcon_meta'
+[0.587s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extensions ['ros']
+[0.587s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach) by extension 'ros'
+[0.589s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach' with type 'ros.cmake' and name 'reach'
+[0.589s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.589s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extension 'ignore'
+[0.589s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extension 'ignore_ament_install'
+[0.589s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extensions ['colcon_pkg']
+[0.589s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extension 'colcon_pkg'
+[0.590s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extensions ['colcon_meta']
+[0.590s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extension 'colcon_meta'
+[0.590s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extensions ['ros']
+[0.590s] Level 1:colcon.colcon_core.package_identification:_identify(/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2) by extension 'ros'
+[0.591s] DEBUG:colcon.colcon_core.package_identification:Package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach_ros2' with type 'ros.ament_cmake' and name 'reach_ros'
+[0.591s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.633s] INFO:colcon.colcon_metadata.metadata.colcon_pkg:Updating descriptor of package '/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/reach' from colcon.pkg: {'hooks': ['share/reach/hook/ament_prefix_path.dsv', 'share/reach/hook/ros_package_path.dsv', 'share/reach/hook/python_path.dsv']}
