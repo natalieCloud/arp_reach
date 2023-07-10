@@ -1,0 +1,6 @@
+[submodule "src/reach_ros2"]
+	path = src/reach_ros2
+	url = https://github.com/ros-industrial/reach_ros2.git
+[submodule "src/reach"]
+	path = src/reach
+	url = https://github.com/ros-industrial/reach.git
