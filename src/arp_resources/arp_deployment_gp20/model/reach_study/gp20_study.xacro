@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<robot name="gp20_study" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:include filename="$(find arp_deployment_gp20)/model/xacro_files/gp20_hl_macro.xacro" />
+    <xacro:motoman_gp20_hl prefix=""/>
+
+    <link name="tcp"/>
+    <joint name="tool0_to_tcp" type="fixed">
+      <parent link="tool0"/>
+      <child link="tcp"/>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    </joint>
+    
+</robot>
