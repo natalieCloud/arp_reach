@@ -1,2 +1,2 @@
-std_msgs/Header gloabl_header
+std_msgs/Header global_header
 string xml_filepath
