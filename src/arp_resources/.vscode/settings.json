@@ -1,11 +1,19 @@
 {
     "workbench.colorCustomizations": {
-        "activityBar.background": "#43270F",
-        "titleBar.activeBackground": "#5E3616",
+        "activityBar.background": "#5d144c",
+        "titleBar.activeBackground": "#5e1657",
         "titleBar.activeForeground": "#FDFBF8"
     },
     "ros.distro": "humble",
     "files.associations": {
         "vector": "cpp"
-    }
+    },
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
 }
