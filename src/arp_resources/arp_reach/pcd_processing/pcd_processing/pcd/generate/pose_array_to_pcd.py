@@ -54,16 +54,16 @@ from geometry_msgs.msg import Pose, PoseArray
 
 # FUNCTIONS:
 
-## write_file
-#
-# This takes the information from poseArray and parses it into a .pcd file that will allow us 
-# to run the reach study
-#
-# @param outFile: The file that will be written to (Path wlll be determined by launch param?
-# or maybe just be constant idk yet!
-#
-# @param poseArr: The poseArray that all the information will be taken from!
-#
+    ## write_file
+    #
+    # This takes the information from poseArray and parses it into a .pcd file that will allow us 
+    # to run the reach study
+    #
+    # @param outFile: The file that will be written to (Path wlll be determined by launch param?
+    # or maybe just be constant idk yet!
+    #
+    # @param poseArr: The poseArray that all the information will be taken from!
+    #
 def write_file(out_file_name, pose_arr):
     file_out = open(out_file_name, "w")
     size = len(pose_arr.poses)
