@@ -4,5 +4,13 @@
         "titleBar.activeBackground": "#40403C",
         "titleBar.activeForeground": "#FBFBFB"
     },
-    "ros.distro": "humble"
+    "ros.distro": "humble",
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
 }
