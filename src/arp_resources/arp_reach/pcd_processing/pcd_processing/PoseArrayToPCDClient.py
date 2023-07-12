@@ -1,3 +1,5 @@
+#! /usr/bin/env
+
 import sys
 
 from arp_msgs.srv import FormatPosesToPCD
@@ -22,9 +24,8 @@ class GeneratePCDClient(Node):
     
 def main():
     rclpy.init()
-
     pcd_processor = GeneratePCDClient()
-    response = pcd_processor.send_request(sys.argv[1])
+    result = pcd_processor.send_request(sys.argv[1])
     
     pcd_processor.destroy_node()
     rclpy.shutdown()

@@ -1,4 +1,7 @@
+#! /usr/bin/env
+
 from geometry_msgs.msg import Pose, PoseArray
+import sys
 
 ###
  # @brief A python file that processes an input of type poseArray and turns it into a .pcd 
@@ -79,3 +82,5 @@ def write_file(out_file_name, pose_arr):
         file_out.write(str(new_pose.position.z) + " " + str(new_pose.orientation.x) + " ")
         file_out.write(str(new_pose.orientation.y) + " " + str(new_pose.orientation.z))
         file_out.write(" " + str(new_pose.orientation.w) + "\n")
+
+    return out_file_name
