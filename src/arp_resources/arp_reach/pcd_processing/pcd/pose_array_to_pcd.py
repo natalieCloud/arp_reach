@@ -1,7 +1,9 @@
 #! /usr/bin/env
 
+# Author: Natalie Chmura
+# Maintainer: Natalie Chmura email:ntchmura@gmail.com
+
 from geometry_msgs.msg import Pose, PoseArray
-import sys
 
 ###
  # @brief A python file that processes an input of type poseArray and turns it into a .pcd 
@@ -68,6 +70,18 @@ import sys
     # @param poseArr: The poseArray that all the information will be taken from!
     #
 def write_file(out_file_name, pose_arr):
+    """
+    This takes the information from poseArray and parses it into a .pcd file that will allow us 
+    to run the reach study
+
+    Parameters
+    ----------
+        outFile : str
+            The file that will be written to (Path wlll be determined by launch param?
+            or maybe just be constant idk yet!
+        poseArr : PoseArray
+            The poseArray that all the information will be taken from!
+    """
     file_out = open(out_file_name, "w")
     size = len(pose_arr.poses)
 
