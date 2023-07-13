@@ -1,5 +1,7 @@
 #! /usr/bin/env
 
+import os
+
 from arp_msgs.srv import FormatPosesToPCD
 import pcd.pose_array_to_pcd as pcd
 
@@ -14,7 +16,8 @@ class GeneratePCDService(Node):
 
     def process_pcd_callback(self, request, response):
         self.get_logger().info("Called callback...\n")
-        response.pcd_filepath = 'poseArr.pcd'
+        home_dir = os.path.expanduser('~')
+        response.pcd_filepath = home_dir + '/../../tmp/poseArr.pcd'
         pcd.write_file(response.pcd_filepath, request.waypoints)
 
         # file_out = open(response.pcd_file, "w")
