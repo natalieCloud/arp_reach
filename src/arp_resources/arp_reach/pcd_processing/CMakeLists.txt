@@ -15,7 +15,7 @@ find_package(arp_msgs REQUIRED)
 
 find_package(rosidl_default_generators REQUIRED)
 
-ament_python_install_package("include/pcd")
+ament_python_install_package("pcd")
 
 install(PROGRAMS
     nodes/PoseArrayToPCDClient.py
