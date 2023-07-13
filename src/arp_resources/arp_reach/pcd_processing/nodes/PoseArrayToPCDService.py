@@ -1,7 +1,7 @@
 #! /usr/bin/env
 
 from arp_msgs.srv import FormatPosesToPCD
-import include.pcd.pose_array_to_pcd as pcd
+import pcd.pose_array_to_pcd as pcd
 
 import rclpy
 from rclpy.node import Node
@@ -13,10 +13,9 @@ class GeneratePCDService(Node):
         self.srv = self.create_service(FormatPosesToPCD, 'process_pcd', self.process_pcd_callback)
 
     def process_pcd_callback(self, request, response):
-        response.success = True
         self.get_logger().info("Called callback...\n")
-        response.pcd_file = '~/tmp/poseArr.pcd'
-        pcd.write_file(response.pcd_file, request.waypoints)
+        response.pcd_filepath = 'poseArr.pcd'
+        pcd.write_file(response.pcd_filepath, request.waypoints)
 
         # file_out = open(response.pcd_file, "w")
         # size = len(request.waypoints.poses)
@@ -38,7 +37,7 @@ class GeneratePCDService(Node):
     
 def main(args=None):
     rclpy.init()
-
+    print("Hello")
     pcd_processor_service = GeneratePCDService()
 
     rclpy.spin(pcd_processor_service)
