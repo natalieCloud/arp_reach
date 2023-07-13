@@ -40,7 +40,7 @@ class GeneratePCDService(Node):
     
 def main(args=None):
     rclpy.init()
-    print("Hello")
+    #print("Hello- this is the service")
     pcd_processor_service = GeneratePCDService()
 
     rclpy.spin(pcd_processor_service)

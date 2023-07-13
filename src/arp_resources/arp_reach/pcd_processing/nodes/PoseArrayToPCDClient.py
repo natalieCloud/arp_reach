@@ -22,15 +22,15 @@ class GeneratePCDClient(Node):
 
     def send_request(self, waypoints):
         self.req = waypoints
-        print("Request sent")
+        #print("Request sent")
         self.future = self.cli.call_async(self.req)
         rclpy.spin_until_future_complete(self, self.future)
         return self.future.result()
     
 def main(args=None):
     rclpy.init()
-    print("Hello")
-    print(args)
+    #print("Hello- this is the client")
+    #print(args)
     pcd_processor = GeneratePCDClient()
 
     req = FormatPosesToPCD.Request()
@@ -49,7 +49,7 @@ def main(args=None):
     req.waypoints = m
 
     response = pcd_processor.send_request(req)
-    print("Request recieved")
+    #print("Request recieved")
     pcd_processor.destroy_node()
     rclpy.shutdown()
 
