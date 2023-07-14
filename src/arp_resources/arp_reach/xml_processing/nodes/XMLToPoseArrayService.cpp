@@ -39,7 +39,7 @@
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request recieved.");
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Filepath: %s" , request->xml_filepath.c_str());
 }
 
 int main (int argc, char **argv) {

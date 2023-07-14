@@ -26,6 +26,8 @@ int main(int argc, char **argv) {
     std::string extension = "../../tmp/reach.db.xml";
     std::string homedir = getenv("HOME") + extension;
 
+    request->xml_filepath = homedir;
+
     auto poseArr = geometry_msgs::msg::PoseArray();
     poseArr.header.frame_id = "world";
     /** Include initilizing a few poses here from the issue 6 folder
@@ -41,6 +43,8 @@ int main(int argc, char **argv) {
     pose1.orientation.w = 0.0;
 
     poseArr.poses.push_back(pose1);
+
+    request->waypoints = poseArr;
 
     while (!client->wait_for_service(1s)) {
         if(!rclcpp::ok()) {
