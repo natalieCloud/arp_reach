@@ -5,10 +5,10 @@
 #include <memory>
 
 /**Tests*/
-#include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <stdio.h>
+// #include <iostream>
+// #include <string>
+// #include <stdlib.h>
+// #include <stdio.h>
 
 // /**
 //  * @class XMLServiceNode
@@ -39,7 +39,7 @@
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "InComing request recieved.");
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request recieved.");
 }
 
 int main (int argc, char **argv) {

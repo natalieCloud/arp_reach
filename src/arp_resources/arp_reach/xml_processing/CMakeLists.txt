@@ -21,9 +21,18 @@ find_package(geometry_msgs REQUIRED)
 find_package(arp_msgs REQUIRED)
 
 # Add Executables
-add_executable(testing nodes/XMLToPoseArrayService.cpp)
+add_executable(xml_parse_service nodes/XMLToPoseArrayService.cpp)
 ament_target_dependencies (
-    testing
+    xml_parse_service
+    rclcpp
+    geometry_msgs
+    arp_msgs
+    std_msgs
+)
+
+add_executable(xml_parse_client nodes/XMLToPoseArrayClient.cpp)
+ament_target_dependencies (
+    xml_parse_client
     rclcpp
     geometry_msgs
     arp_msgs
@@ -32,7 +41,8 @@ ament_target_dependencies (
 
 # Install
 install(TARGETS
-    testing
+    xml_parse_service
+    xml_parse_client
     DESTINATION lib/${PROJECT_NAME}
 )
 
