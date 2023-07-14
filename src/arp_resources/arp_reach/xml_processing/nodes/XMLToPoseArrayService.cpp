@@ -39,7 +39,7 @@
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
-            
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "InComing request recieved.");
 }
 
 int main (int argc, char **argv) {
@@ -48,5 +48,11 @@ int main (int argc, char **argv) {
 
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("process_xml_server");
 
+    rclcpp::Service<arp_msgs::srv::FormatPosesFromXML>::SharedPtr service =
+        node->create_service<arp_msgs::srv::FormatPosesFromXML>("format_poses_from_xml", &process_xml);
     
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to format poses.");
+
+    rclcpp::spin(node);
+    rclcpp::shutdown();
 }
