@@ -16,11 +16,18 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 
-#Add Executables
-add_executable(testing src/XMLToPoseArrayService.cpp)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(arp_msgs REQUIRED)
+
+# Add Executables
+add_executable(testing nodes/XMLToPoseArrayService.cpp)
 ament_target_dependencies (
     testing
     rclcpp
+    geometry_msgs
+    arp_msgs
+    std_msgs
 )
 
 # Install

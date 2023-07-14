@@ -1,4 +1,4 @@
-arp_msgs/XMLFile xml_filepath # The filepath for the reach database file
+string xml_filepath # The filepath for the reach database file
 geometry_msgs/PoseArray waypoints # The points along the path that reach has been performed on
 ---
 geometry_msgs/PoseArray waypoints # The points along the path that reach has been performed on

@@ -2,7 +2,6 @@
 #define XML_PROCESSING_RESULT_THREADING_H
 
 #include "../pose_structs.hpp"
-#include <rclcpp/rclcpp.hpp>
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_array.hpp"
 
