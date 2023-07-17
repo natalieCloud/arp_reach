@@ -21,7 +21,11 @@ find_package(geometry_msgs REQUIRED)
 find_package(arp_msgs REQUIRED)
 
 # Add Executables
-add_executable(xml_parse_service nodes/XMLToPoseArrayService.cpp)
+add_executable(xml_parse_service nodes/XMLToPoseArrayService.cpp 
+    parsing_lib/src/xml_parser.cpp 
+    parsing_lib/src/result_parsing.cpp
+    parsing_lib/src/array_transform.cpp
+    parsing_lib/src/float_standard.cpp)
 ament_target_dependencies (
     xml_parse_service
     rclcpp

@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
     
     auto request = std::make_shared<arp_msgs::srv::FormatPosesFromXML::Request>();
 
-    std::string extension = "../../tmp/reach.db.xml";
+    std::string extension = "/../../tmp/reach.db.xml";
     std::string homedir = getenv("HOME") + extension;
 
     request->xml_filepath = homedir;

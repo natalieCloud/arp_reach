@@ -1,8 +1,12 @@
 #include <rclcpp/rclcpp.hpp>
 #include "../parsing_lib/include/interfaces/xml_parser.hpp"
+#include "../parsing_lib/include/interfaces/result_parsing.hpp"
 #include "arp_msgs/srv/format_poses_from_xml.hpp"
 
 #include <memory>
+
+#include <stdlib.h>
+#include <vector>
 
 /**Tests*/
 // #include <iostream>
@@ -39,7 +43,12 @@
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Filepath: %s" , request->xml_filepath.c_str());
+    std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml_filepath.c_str());
+
+    std::vector<_Float64> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
+
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Score: %f", results[0]);
+
 }
 
 int main (int argc, char **argv) {

@@ -3,6 +3,7 @@
 
 #include <eigen3/Eigen/Geometry>
 #include "../pose_structs.hpp"
+#include "float_standard.hpp"
 
 #include <stdio.h>
 
@@ -62,7 +63,7 @@ class ArrayTF {
          * @returns
          * A Isometry3D of the pose
          */
-        static Eigen::Isometry3d setIsometry(_Float64 * poseArray);  
+        static Eigen::Isometry3d setIsometry(_Float64 * poseArray);
 };    
 
 } //namespace ReachArray
