@@ -10,11 +10,20 @@
 namespace ReachArray {
 
     Eigen::Quaternion<_Float64> ArrayTF::getQuaternion(_Float64 * poseArray) {
-        return Eigen::Quaternion<_Float64>(setIsometry(poseArray).rotation());
+        Eigen::Quaternion<_Float64> quat = Eigen::Quaternion<_Float64>(setIsometry(poseArray).rotation());
+        quat.x() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(quat.x());
+        quat.y() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(quat.y());
+        quat.z() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(quat.z());
+        quat.w() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(quat.w());
+        return quat;
     }
 
     Eigen::Vector3d ArrayTF::getTranslation(_Float64 * poseArray) {
-        return Eigen::Matrix4d(poseArray).block<3,1>(0, 3);
+        auto loc = Eigen::Matrix4d(poseArray).block<3,1>(0, 3);
+        loc(0, 0) = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(loc(0, 0)); //x
+        loc(1, 0) = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(loc(1, 0)); //y
+        loc(2, 0) = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(loc(2, 0)); //z
+        return loc;
     }
 
     Eigen::Isometry3d ArrayTF::setIsometry(_Float64 * poseArray) {

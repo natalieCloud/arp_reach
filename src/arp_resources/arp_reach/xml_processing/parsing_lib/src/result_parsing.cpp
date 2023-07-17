@@ -56,13 +56,13 @@ void Retriever::populateResults(int start, int end, int max, geometry_msgs::msg:
 
 XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData Retriever::getKey(geometry_msgs::msg::Pose * pose) {
     XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData poseD;
-    poseD.translation.x() = pose->position.x;
-    poseD.translation.y() = pose->position.y;
-    poseD.translation.z() = pose->position.z;
-    poseD.quater.x() = pose->orientation.x;
-    poseD.quater.y() = pose->orientation.y;
-    poseD.quater.z() = pose->orientation.z;
-    poseD.quater.w() = pose->orientation.w;
+    poseD.translation.x() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->position.x);
+    poseD.translation.y() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->position.y);
+    poseD.translation.z() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->position.z);
+    poseD.quater.x() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.x);
+    poseD.quater.y() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.y);
+    poseD.quater.z() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.z);
+    poseD.quater.w() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.w);
     return poseD;
 }
 
