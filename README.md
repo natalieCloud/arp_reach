@@ -24,10 +24,31 @@ Then navigate towards the root of the workspace and build the project:<br>
     colcon build --symlink-install
 ```
 <br>
+That is, if everything was working which it isn't yet- so right now you'll have to use
+the packages selection to make sure that it builds sucessfully, so alternativley run:<br>
+
+```
+    colcon build --packages-select arp_msgs pcd_processing xml_processing --symlink-install
+```
+
+<br>
 Once the package has finished building make sure to source the install
 
 ```
     source ./install/setup.bash 
 ```
 <br>
-After that I dont know the executable names so that'll be in an update (^_^)d
+Update: Current sucessfull builds are arp_msgs, pcd_processing, and xml_processing - > key note with the pcd_processing though you'll have to have python configured for the compiler you're using!
+
+### Executables
+
+*arp_msgs* 
+- None Y(^u^)Y
+  
+*pcd_processing* 
+- PoseArrayToPCDClient
+- PoseArrayToPCDService
+
+*xml_processing*
+- xml_parse_service
+- xml_parse_client
