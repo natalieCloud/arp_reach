@@ -42,13 +42,13 @@ Update: Current sucessfull builds are arp_msgs, pcd_processing, and xml_processi
 
 ### Executables
 
-*arp_msgs* 
+[**arp_msgs**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_msgs) 
 - None Y(^u^)Y
   
-*pcd_processing* 
+[**pcd_processing**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/pcd_processing) 
 - PoseArrayToPCDClient
 - PoseArrayToPCDService
 
-*xml_processing*
+[**xml_processing**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/xml_processing)
 - xml_parse_service
 - xml_parse_client
