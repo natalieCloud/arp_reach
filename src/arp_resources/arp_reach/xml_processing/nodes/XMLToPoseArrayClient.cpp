@@ -30,16 +30,16 @@ int main(int argc, char **argv) {
 
     auto poseArr = geometry_msgs::msg::PoseArray();
     poseArr.header.frame_id = "world";
-    /** Include initilizing a few poses here from the issue 6 folder
-     * I dont feel like doing this rnnnnnnnn
+    /** 
+     * Test pose to ensure that the request-response is valid!
     */
     auto pose1 = geometry_msgs::msg::Pose();
-    pose1.position.x = 2.4223447;
-    pose1.position.y = -0.36079797;
-    pose1.position.z = 1.2388842;
-    pose1.orientation.x = -0.48066208;
-    pose1.orientation.y = -0.38725615;
-    pose1.orientation.z = -0.78676349;
+    pose1.position.x = 2.4766912;
+    pose1.position.y = 0.22562733;
+    pose1.position.z = 1.244387;
+    pose1.orientation.x = -0.093562581;
+    pose1.orientation.y = 0.0089845313;
+    pose1.orientation.z = -0.99557281;
     pose1.orientation.w = 0.0;
 
     poseArr.poses.push_back(pose1);
@@ -51,7 +51,7 @@ int main(int argc, char **argv) {
             RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting");
             return 0;
         }
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not active, waiting for activity...");
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Service not active, waiting for activity...");
     }
 
     auto result = client->async_send_request(request);

@@ -13,11 +13,9 @@ namespace FloatSt {
     // PUBLIC:
 
     _Float64 RoundSt::roundNano(_Float64 number) {
-        _Float64 calc = number;
-        calc *= 10000000;
-        int intermediate = round(calc);
-        calc = intermediate / 10000000;
 
+        long intermediate = round(number * 10000000);
+        _Float64 calc = intermediate / 10000000.00;
         return calc;
     }
 
