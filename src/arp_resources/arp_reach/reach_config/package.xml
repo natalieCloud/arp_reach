@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>reach_config</name>
+    <version>0.0.0</version>
+    <description>
+        This package contains a custom library used by the reach custom client server system
+    </description>
+    <author>Natalie T. Chmura</author>
+    <maintainer email="chmura.18@osu.edu">Natalie T. Chmura (AIMS Lab @ The Ohio State University)</maintainer>
+    <license>Apache Licesnse 2.0</license>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <depend>ament_cmake</depend>
+    <depend>rclcpp</depend>
+
+    <depend>arp_msgs</depend>
+    <depend>std_msgs</depend>
+    
+    <depend>arp_deployment_gp20</depend>
+    
+    <export>
+        <build_type>ament_cmake</build_type>
+    </export>
+</package>
