@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>arp_deployment_gp20</name>
+    <version>0.0.0</version>
+    <description>
+        ROS-Industral support for the Motoman GP20 (and variants).
+
+        This packge contains configuriation data and 3D models for the Motoman GP20
+        manipulator!
+    </description>
+    <author>A. C. Buynak</author>
+    <author>Natalie T. Chmura</author>
+    <maintainer email="buynak.9@osu.edu">A.C. Buynak (The Ohio State University)</maintainer>
+    <maintainer email="chmura.18@osu.edu">Natalie T. Chmura (AIMS Lab @ The Ohio State University)</maintainer>
+    <license>Apache Licesnse 2.0</license>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <exec_depend>joint_state_publisher_gui</exec_depend>
+    <exec_depend>motoman_resources</exec_depend>
+     <exec_depend>robot_state_publisher</exec_depend>
+    <exec_depend>rviz2</exec_depend>
+    <exec_depend>xacro</exec_depend>
+
+    <export>
+        <build_type>ament_cmake</build_type>
+    <!-- <architecture_independent/> -->
+    </export>
+    
+</package>
