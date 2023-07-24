@@ -32,7 +32,7 @@ parameters = [
   {'name': 'robot_description_joint_limits_file',   'description': 'Path to the MoveIt joint limits file',            'default': PathJoinSubstitution([FindPackageShare('arp_deployment_gp20'), 'model', 'reach_study', 'gp20_joint_limits.yaml'])},
   {'name': 'config_file',                           'description': 'Path to the reach study configuration YAML file', 'default': PathJoinSubstitution([FindPackageShare('reach_config'), 'config', 'posePath.yaml'])},
   {'name': 'config_name',                           'description': 'Reach study configuration name',                  'default': 'posePath'},
-  {'name': 'results_dir',                           'description': 'Directory in which to save reach study results',  'default': PathJoinSubstitution(['/tmp'])}, #TODO change as soon as possible to be more OS agnostic!
+  {'name': 'results_dir',                           'description': 'Directory in which to save reach study results',  'default': PathJoinSubstitution(['~', '..', '..', 'tmp'])}, #TODO change as soon as possible to be more OS agnostic!
 ]
 
 
