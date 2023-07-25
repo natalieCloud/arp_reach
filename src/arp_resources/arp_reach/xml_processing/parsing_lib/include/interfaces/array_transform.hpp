@@ -38,7 +38,7 @@ class ArrayTF {
          * @returns 
          * A quaternion of the pose
          */
-        static Eigen::Quaternion<_Float64> getQuaternion(_Float64 * poseArray);
+        static Eigen::Quaternion<double> getQuaternion(double * poseArray);
 
         /**
          * @brief This function inputs an array of pose data (representing a matrix of type
@@ -50,7 +50,7 @@ class ArrayTF {
          * @returns
          * A 3x1 matrix of the pose's xyz coordinates!
          */
-        static Eigen::Vector3d getTranslation(_Float64 * poseArray);
+        static Eigen::Vector3d getTranslation(double * poseArray);
 
     private:
 
@@ -63,7 +63,7 @@ class ArrayTF {
          * @returns
          * A Isometry3D of the pose
          */
-        static Eigen::Isometry3d setIsometry(_Float64 * poseArray);
+        static Eigen::Isometry3d setIsometry(double * poseArray);
 };    
 
 } //namespace ReachArray

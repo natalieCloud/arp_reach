@@ -13,12 +13,15 @@ void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Reques
 
     std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml_filepath.c_str());
 
-    std::vector<_Float64> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
-    _Float64 scoarr[request->waypoints.poses.size()];
+    std::vector<double> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
+    double scoarr[request->waypoints.poses.size()];
 
     //Assign response values!
-    response->scores = std::copy(results.begin(), results.end(), scoarr);
-    response->waypoints = request->waypoints;
+    // response->scores = std::copy(results.begin(), results.end(), scoarr);
+    // response->waypoints = request->waypoints;
+    for(int i = o; i < request.waypoints.poses.size(); i++) {
+        response->scores[i] = results[i];
+    }
     //response->scores = results.data();
     //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Results: %f", results[0]);
 }

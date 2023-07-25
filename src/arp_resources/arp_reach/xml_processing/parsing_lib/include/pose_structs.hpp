@@ -21,7 +21,7 @@ namespace Postructs {
  */
 struct PoseData {
     Eigen::Vector3d translation;
-    Eigen::Quaternion<_Float64> quater;
+    Eigen::Quaternion<double> quater;
 
     //Operator overloads for use as a key
     //Sorting is more or less arbitrary however for time complexity sake I decided to go with 
@@ -43,7 +43,7 @@ struct PoseData {
  */
 struct ResultData {
     bool reachable;
-    _Float64 score;
+    double score;
 };
     
 /**

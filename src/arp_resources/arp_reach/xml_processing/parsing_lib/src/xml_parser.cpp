@@ -104,13 +104,13 @@ void XMLParser::populateStruct(rapidxml::xml_node<> * item_node, struct XML_PROC
 
 }
 
-_Float64 * XMLParser::getPoseMatrix(rapidxml::xml_node<> * item_node) {
+double * XMLParser::getPoseMatrix(rapidxml::xml_node<> * item_node) {
     
     // item_node = item->reached->goal->matrix->count->item_version->[first]item 
     item_node = item_node->first_node()->next_sibling()->first_node()
         ->first_node()->next_sibling()->next_sibling();
 
-    static _Float64 numMatrix[XMLParser::MATRIX_SIZE];
+    static double numMatrix[XMLParser::MATRIX_SIZE];
 
     for (int i = 0; i < XMLParser::MATRIX_SIZE && item_node; i++) {
         numMatrix[i] = atof(item_node->value());

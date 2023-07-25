@@ -27,11 +27,11 @@ namespace FloatSt {
         public:
 
             /**
-             * @brief This function rounds a _Float64 to 7 decimal places!
+             * @brief This function rounds a double to 7 decimal places!
              * 
              * @param number: The number that willbe rounded
             */
-           static _Float64 roundNano(_Float64 number);
+           static double roundNano(double number);
     };
 
 }
