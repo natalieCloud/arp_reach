@@ -98,3 +98,48 @@ def write_file(out_file_name, pose_arr):
         file_out.write(" " + str(new_pose.orientation.w) + "\n")
 
     return out_file_name
+
+def read_poses(in_file_name):
+    """
+        This takes the information in from a PCD file and parses it into a poseArray that will
+        allow for ease of testing
+
+        Parameters
+        ----------
+            in_file_name : str
+                The file that will be read from (Path will be determined by user)
+    """
+    poses = PoseArray()
+
+    file_in = open(in_file_name, "r")
+    file_in.readline() # PCD v0.7 etc
+    file_in.readline() # Version 0.7
+    file_in.readline() # Fields
+    file_in.readline() # Size
+    file_in.readline() # Type
+    file_in.readline() # Count
+    file_in.readline() # Width
+    file_in.readline() # Height
+    file_in.readline() # Viewpoint
+    file_in.readline() # Points
+    file_in.readline() # Data
+
+    while True:
+        line = file_in.readline()
+        if not line:
+            break
+        line.strip('\n')
+        nums = [float(x) for x in line.split()]
+        pose = Pose()
+        pose.orientation.w = nums[3]
+        pose.orientation.x = nums[4]
+        pose.orientation.y = nums[5]
+        pose.orientation.z = nums[6]
+        pose.position.x = nums[0]
+        pose.position.y = nums[1]
+        pose.position.z = nums[2]
+        poses.append(pose)
+
+    file_in.close()
+
+    return poses
