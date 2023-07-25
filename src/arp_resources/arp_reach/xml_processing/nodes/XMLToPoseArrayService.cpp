@@ -19,6 +19,7 @@ void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Reques
     //Assign response values!
     response->scores = std::copy(results.begin(), results.end(), scoarr);
     response->waypoints = request->waypoints;
+    //response->scores = results.data();
     //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Results: %f", results[0]);
 }
 
