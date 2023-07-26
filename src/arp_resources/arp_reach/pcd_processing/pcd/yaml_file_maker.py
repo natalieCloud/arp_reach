@@ -29,15 +29,15 @@ def write_yaml(out_file_name, pcd_filename):
             'touch_links': '[]'},
         'evaluator':{
             'name':'MultiplicativeEvaluator', 
-            'plugins':{
-                ['name':'ManipulabilityMoveIt'],
-                'planning_group':'manipulator',
-                ['name':'DistancePenaltyMoveIt'],
+            'plugins': 
+                [{'name':'ManipulabilityMoveIt',
+                'planning_group':'manipulator'},
+                {'name':'DistancePenaltyMoveIt',
                 'planning_group':'manipulator',
                 'distance_threshold':'0.025',
                 'exponent':'2',
-                'touch_links':'[]',
-                },},
+                'touch_links':'[]'},],
+                },
         'display':{
             'name':'ROSDisplay',
             'kinematic_base_frame':'base_link',
