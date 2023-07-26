@@ -16,6 +16,10 @@ Stores the filepath of a pcd file
 
 Stores the filepath of an xml file
 
+**YAMLFILE**
+
+Stores the filepath of a yaml file
+
 ## Srv
 
 **CheckGridsetReachability**
@@ -28,4 +32,4 @@ Takes in the reach study result xml file and processes the file into the `PoseAr
 
 **FormatPosesToPCD**
 
-Takes in the `PoseArray` and generates a PCD file from those poses- returns the filepath to those poses.
+Takes in the `PoseArray` and generates a YAML file from those poses- returns the filepath to those poses.
