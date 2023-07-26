@@ -46,7 +46,7 @@ class Retriever {
      * @param reachStudyMap: A map that contains all of the data pulled from the reach_study in xml_parsing
      * with the keys being of type pose and the results containing the return sucess and score!
      */
-    static std::vector<_Float64> getScoreData(geometry_msgs::msg::PoseArray poseKeys, 
+    static std::vector<double> getScoreData(geometry_msgs::msg::PoseArray poseKeys, 
         std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> reachStudyMap,
         int size);
 
@@ -65,7 +65,7 @@ class Retriever {
      */
     static void populateResults(int start, int end, int max, geometry_msgs::msg::PoseArray poseKeys,
         std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> reachStudyMap,
-        _Float64 * results);
+        double * results);
 
     /**
      * @brief Puts the pose data into the poseData (struct) format to be used as a key! for the map!

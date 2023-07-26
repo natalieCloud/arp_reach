@@ -12,13 +12,13 @@ namespace Scorter {
 
 std::mutex sharedMutex;
 
-std::vector<_Float64> Retriever::getScoreData(geometry_msgs::msg::PoseArray poseKeys,
+std::vector<double> Retriever::getScoreData(geometry_msgs::msg::PoseArray poseKeys,
         std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> reachStudyMap,
         int size) {
     
-    std::vector<_Float64> results;
-    _Float64 resultArr[size];
-    _Float64 * arrPtr = resultArr;
+    std::vector<double> results;
+    double resultArr[size];
+    double * arrPtr = resultArr;
 
     int num_threads = std::thread::hardware_concurrency();
     if(!num_threads) {num_threads++;}
@@ -44,7 +44,7 @@ std::vector<_Float64> Retriever::getScoreData(geometry_msgs::msg::PoseArray pose
 
 void Retriever::populateResults(int start, int end, int max, geometry_msgs::msg::PoseArray poseKeys,
         std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> reachStudyMap,
-        _Float64 * results) {
+        double * results) {
 
     std::lock_guard<std::mutex> lock(sharedMutex);
     for (int i = start; i < end && i < max; i++) {

@@ -28,7 +28,7 @@ display:
 
 target_pose_generator:
   name: PointCloudTargetPoseGenerator
-  pcd_file: /tmp/poseArrayPCD.pcd ##TODO change as soon as possible to be OS agnostic!
+  pcd_file: ~/../../tmp/poseArr.pcd ##TODO change as soon as possible to be OS agnostic!
 
 logger:
   name: BoostProgressConsoleLogger

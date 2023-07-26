@@ -12,6 +12,7 @@ if (NOT CMAKE_CXX_STANDARD)
 endif()
 
 find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
 find_package(rclpy REQUIRED)
 
 find_package(std_msgs REQUIRED)
@@ -20,7 +21,7 @@ find_package(arp_msgs REQUIRED)
 
 find_package(rosidl_default_generators REQUIRED)
 
-ament_python_install_package("pcd")
+ament_python_install_package("pcd_processing")
 
 install(PROGRAMS
     nodes/PoseArrayToPCDClient.py

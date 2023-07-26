@@ -20,11 +20,13 @@ rosidl_generate_interfaces(
     ${PROJECT_NAME}
     "msg/PCDFile.msg"
     "msg/XMLFile.msg"
+    "msg/YAMLFile.msg"
     "srv/CheckGridsetReachability.srv"
     "srv/FormatPosesFromXML.srv"
     "srv/FormatPosesToPCD.srv"
     DEPENDENCIES
     geometry_msgs
+    std_msgs
 )
 
 if(BUILD_TESTING)

@@ -12,10 +12,10 @@ namespace FloatSt {
 
     // PUBLIC:
 
-    _Float64 RoundSt::roundNano(_Float64 number) {
+    double RoundSt::roundNano(double number) {
 
         long intermediate = round(number * 10000000);
-        _Float64 calc = intermediate / 10000000.00;
+        double calc = intermediate / 10000000.00;
         return calc;
     }
 

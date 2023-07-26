@@ -120,7 +120,7 @@ class XMLParser {
          * 
          * @returns An array of Isometery3D data
          */
-        static _Float64 * getPoseMatrix(rapidxml::xml_node<> * item_node); 
+        static double * getPoseMatrix(rapidxml::xml_node<> * item_node); 
 };
 
 } //namespace ReachXML 
