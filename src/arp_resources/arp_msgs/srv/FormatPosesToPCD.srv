@@ -1,3 +1,3 @@
 geometry_msgs/PoseArray waypoints # The points along the path that reach will be performed on
 ---
-string pcd_filepath # The filepath for the reach database file
+string yaml_filepath # The filepath for the yaml file that contains the reach configuration data, including the genrated pcd file
