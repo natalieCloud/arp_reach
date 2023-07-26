@@ -19,7 +19,7 @@ void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Reques
     //Assign response values!
     // response->scores = std::copy(results.begin(), results.end(), scoarr);
     // response->waypoints = request->waypoints;
-    for(int i = o; i < request.waypoints.poses.size(); i++) {
+    for(int i = 0; i < request->waypoints.poses.size(); i++) {
         response->scores[i] = results[i];
     }
     //response->scores = results.data();
