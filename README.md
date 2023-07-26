@@ -28,7 +28,7 @@ That is, if everything was working which it isn't yet- so right now you'll have 
 the packages selection to make sure that it builds sucessfully, so alternativley run:<br>
 
 ```
-    colcon build --packages-select arp_msgs pcd_processing xml_processing --symlink-install
+    colcon build --packages-select arp_msgs arp_deployment_gp20 pcd_processing xml_processing reach reach_ros2 --symlink-install
 ```
 
 <br>
@@ -42,8 +42,14 @@ Update: Current sucessfull builds are arp_msgs, pcd_processing, and xml_processi
 
 ### Executables
 
+[**Main launch**]()
+- arp_reach_config.launch.py (Not made yet--- [issue #24](https://github.com/natalieCloud/arp_reach/issues/24) TODO!)
+
 [**arp_msgs**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_msgs) 
 - None Y(^u^)Y
+
+[**arp_deployment_gp20**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_deployment_gp20)
+- None Y(^w^)Y
   
 [**pcd_processing**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/pcd_processing) 
 - PoseArrayToPCDClient
@@ -52,3 +58,11 @@ Update: Current sucessfull builds are arp_msgs, pcd_processing, and xml_processi
 [**xml_processing**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/xml_processing)
 - xml_parse_service
 - xml_parse_client
+
+### Structure
+
+In the main launch file, the main nodes that will be called will be laid out as follows:
+
+![image](https://github.com/natalieCloud/arp_reach/assets/123828141/4d114a56-99f9-40ad-8fb7-63c205c68830)
+
+Important to note: Each box with sidebars represents a node or launch file that will be called from inside the regular main "Node Hub Launch" file! The dashed lines represent helper functions and the single line arrow inputs, hollow arrows output! 
