@@ -63,6 +63,6 @@ Update: Current sucessfull builds are arp_msgs, pcd_processing, and xml_processi
 
 In the main launch file, the main nodes that will be called will be laid out as follows:
 
-![image](https://github.com/natalieCloud/arp_reach/assets/123828141/c180beb0-d940-4819-b5e0-7c221c91ecf9)
+![image](https://github.com/natalieCloud/arp_reach/assets/123828141/06f67bf9-33dd-4679-8c94-e859169b7091)
 
 Important to note: Each box with sidebars represents a node or launch file that will be called from inside the regular main "Node Hub Launch" file! The dashed lines represent helper functions and the single line arrow inputs, hollow arrows output! 
