@@ -2,8 +2,7 @@
 
 Howdy! You've found the readme for the pcd_processing package! This package is one of many co-developed alongside another in order to provide ``Reach`` functionality to the [ar_paint](https://github.com/OSU-AIMS/augmented-reality-painting) project!
 
-What pcd processing does is that is provides a service node that would read in the client ``PoseArray`` and write those poses to a file in the /tmp folder (Currently we are only setup to support Linux however 
-an issue will be opened to make this package OS agnostic)
+What pcd processing does is that is provides a service node that would read in the client ``PoseArray`` and write those poses to a file in the /tmp folder (Currently we are only setup to support Linux however an issue will be opened to make this package OS agnostic) Once the poses have been written to a pcd file, it's filepath will then be included in a yaml reach configuration file. which will also be stored in the tmp folder (changes pending) The service node will the returnm the filepath to the yaml file as its response in the form of a string!
 
 ## Requirements to Build:
 
