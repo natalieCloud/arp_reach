@@ -21,7 +21,7 @@ def write_yaml(out_file_name, pcd_filename):
         'optimization':{
             'radius':0.2,
             'max_steps':10, 
-            'step_improvment_threshold':0.01},
+            'step_improvement_threshold':0.01},
         'ik_solver':{
             'name':'MoveItIKSolver',
             'distance_threshold':0.0,
