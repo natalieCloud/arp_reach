@@ -43,11 +43,13 @@ class GeneratePCDService(Node):
         Calls the write file function based on the poseArray given by the client node!
         """
         self.get_logger().info("Called callback...\n")
-        home_dir = os.path.expanduser('~')
-        pcd_filepath = home_dir + '/../../tmp/poseArr.pcd'
-        response.yaml_filepath = home_dir + '/../../tmp/tempYaml.yaml'
+
+        pcd_filepath = str(os.path.join(os.getcwd(), "src", "arp_resources", "arp_reach", "reach_config", "config", "poseArray.pcd"))
+        yaml_filepath = str(os.path.join(os.getcwd(), "src", "arp_resources", "arp_reach", "reach_config", "config", "study_config.yaml"))
+
+        response.yaml_filepath = yaml_filepath
         pcd.write_file(pcd_filepath, request.waypoints)
-        yaml.write_yaml(response.yaml_filepath, pcd_filepath)
+        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/config/poseArray.pcd')
 
         return response
 
