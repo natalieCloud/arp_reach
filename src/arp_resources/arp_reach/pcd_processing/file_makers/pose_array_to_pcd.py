@@ -6,7 +6,7 @@
 from geometry_msgs.msg import Pose, PoseArray
 
 ###
- # @brief A python file that processes an input of type poseArray and turns it into a .pcd 
+ # @brief A python file that processes an input of type poseArray and turns it into a .pcd
  # file that can be used in the reach study
  ##
 
@@ -61,7 +61,7 @@ from geometry_msgs.msg import Pose, PoseArray
 
     ## write_file
     #
-    # This takes the information from poseArray and parses it into a .pcd file that will allow us 
+    # This takes the information from poseArray and parses it into a .pcd file that will allow us
     # to run the reach study
     #
     # @param outFile: The file that will be written to (Path wlll be determined by launch param?

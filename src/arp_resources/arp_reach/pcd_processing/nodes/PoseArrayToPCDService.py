@@ -4,7 +4,6 @@
 # Maintainer: Natalie Chmura email:ntchmura@gmail.com
 
 import os
-import sys
 
 from arp_msgs.srv import FormatPosesToPCD
 
@@ -44,12 +43,12 @@ class GeneratePCDService(Node):
         """
         self.get_logger().info("Called callback...\n")
 
-        pcd_filepath = str(os.path.join(os.getcwd(), "src", "arp_resources", "arp_reach", "reach_config", "config", "poseArray.pcd"))
-        yaml_filepath = str(os.path.join(os.getcwd(), "src", "arp_resources", "arp_reach", "reach_config", "config", "study_config.yaml"))
+        pcd_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "poseArray.pcd"))
+        yaml_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "study_config.yaml"))
 
         response.yaml_filepath = yaml_filepath
         pcd.write_file(pcd_filepath, request.waypoints)
-        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/config/poseArray.pcd')
+        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/poseArray.pcd')
 
         return response
 
@@ -70,4 +69,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
