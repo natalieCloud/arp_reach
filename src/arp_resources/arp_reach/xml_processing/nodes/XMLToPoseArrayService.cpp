@@ -6,6 +6,9 @@
 #include <memory>
 
 #include <stdlib.h>
+
+//Delete ASAP
+#include <stdio.h>
 #include <vector>
 
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
@@ -14,13 +17,30 @@ void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Reques
     std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml_filepath.c_str());
 
     std::vector<double> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
-    double scoarr[request->waypoints.poses.size()];
+    
+    response->waypoints = request->waypoints;
+
+    //const double scoarr[request->waypoints.poses.size()];
+
+    std::cout << "Num results: " << results.size() << std::endl;
+    std::cout << "Num requests: " << request->waypoints.poses.size() << std::endl;
+
+    for (auto score : results) {
+        std::cout << "Score check? " << score << std::endl;
+    }
 
     //Assign response values!
-    // response->scores = std::copy(results.begin(), results.end(), scoarr);
-    // response->waypoints = request->waypoints;
-    for(int i = 0; i < request->waypoints.poses.size(); i++) {
-        response->scores[i] = results[i];
+    //response->scores = std::copy(results.begin(), results.end(), scoarr);
+   
+    // for(int i = 0; i < request->waypoints.poses.size(); i++) {
+    //     scoarr[i] = results.at(i);
+    // }
+
+    response->scores = results;
+
+
+    for (auto sc : response->scores) {
+        std::cout << "Score: " << sc << std::endl;
     }
     //response->scores = results.data();
     //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Results: %f", results[0]);
