@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
     
     auto request = std::make_shared<arp_msgs::srv::FormatPosesFromXML::Request>();
 
-    std::string extension = "/../../tmp/reach.db.xml";
+    std::string extension = "/arpaint_pjt/arp_reach_ws/install/reach_config/share/reach_config/study_config/reach.db.xml";
     std::string homedir = getenv("HOME") + extension;
 
     request->xml_filepath = homedir;
@@ -42,7 +42,17 @@ int main(int argc, char **argv) {
     pose1.orientation.z = -0.99557281;
     pose1.orientation.w = 0.0;
 
+    auto pose2 = geometry_msgs::msg::Pose();
+    pose2.position.x = 0.5;
+    pose2.position.y = 0.1;
+    pose2.position.z = 2.0;
+    pose2.orientation.x = 0;
+    pose2.orientation.y = 0;
+    pose2.orientation.z = 0;
+    pose2.orientation.w = 0;
+
     poseArr.poses.push_back(pose1);
+    poseArr.poses.push_back(pose2);
 
     request->waypoints = poseArr;
 
