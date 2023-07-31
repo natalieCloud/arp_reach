@@ -6,8 +6,9 @@
 import os
 
 from arp_msgs.srv import FormatPosesToPCD
-import pcd.pose_array_to_pcd as pcd
-import yaml.yaml_file_maker as yaml
+
+import file_makers.pose_array_to_pcd as pcd
+import file_makers.yaml_file_maker as yaml
 
 import rclpy
 from rclpy.node import Node
@@ -41,11 +42,13 @@ class GeneratePCDService(Node):
         Calls the write file function based on the poseArray given by the client node!
         """
         self.get_logger().info("Called callback...\n")
-        home_dir = os.path.expanduser('~')
-        pcd_filepath = home_dir + '/../../tmp/poseArr.pcd'
-        response.yaml_filepath = home_dir + '/../../tmp/tempYaml.yaml'
+
+        pcd_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "poseArray.pcd"))
+        yaml_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "study_config.yaml"))
+
+        response.yaml_filepath = yaml_filepath
         pcd.write_file(pcd_filepath, request.waypoints)
-        yaml.write_yaml(response.yaml_filepath, pcd_filepath)
+        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/poseArray.pcd')
 
         return response
 
@@ -66,4 +69,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

@@ -22,6 +22,7 @@ find_package(arp_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 ament_python_install_package("pcd_processing")
+ament_python_install_package("file_makers")
 
 install(PROGRAMS
     nodes/PoseArrayToPCDClient.py
