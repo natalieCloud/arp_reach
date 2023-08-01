@@ -24,6 +24,7 @@ rosidl_generate_interfaces(
     "srv/CheckGridsetReachability.srv"
     "srv/FormatPosesFromXML.srv"
     "srv/FormatPosesToPCD.srv"
+    "srv/RunReachStudy.srv"
     DEPENDENCIES
     geometry_msgs
     std_msgs

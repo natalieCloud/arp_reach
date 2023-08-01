@@ -89,6 +89,7 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "geometry": "cpp"
+        "geometry": "cpp",
+        "*.ipp": "cpp"
     }
 }
