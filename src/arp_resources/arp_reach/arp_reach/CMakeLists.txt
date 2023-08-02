@@ -6,13 +6,24 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+# Set C99
+if (NOT CMAKE_C_STANDARD)
+    set(CMAKE_C_STANDARD 99)
+endif()
+
 # Set C++14
 if (NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 14)
 endif()
+
 # Set C++ flags
 set(CMAKE_CXX_FLAGS -rdynamic)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
 
 # Find Submodules
 find_package(reach REQUIRED)
@@ -30,35 +41,35 @@ set(ROS2_DEPS
     moveit_core
     moveit_msgs
     moveit_ros_planning_interface
-    rclcpp
     sensor_msgs
     visualization_msgs
     std_msgs
     arp_msgs)
 
-find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_python REQUIRED)
-find_package(rclpy REQUIRED)
-
 foreach(dep ${ROS2_DEPS})
     find_package(${dep} REQUIRED)
 endforeach()
 
+install(DIRECTORY launch config 
+    DESTINATION share/${PROJECT_NAME})
+
 add_executable(reach_service nodes/reach_study_node.cpp)
 target_link_libraries(reach_service PUBLIC reach::reach yaml-cpp)
-ament_target_dependencies (reach_service PUBLIC ${ROS2_DEPS})
+ament_target_dependencies(reach_service PUBLIC ${ROS2_DEPS} rclcpp reach_ros reach boost_plugin_loader)
 
-ament_python_install_package("arp_reach")
+add_executable(reach_client nodes/reach_client.cpp)
+ament_target_dependencies(reach_client rclcpp arp_msgs reach_ros reach boost_plugin_loader)
 
 install(TARGETS
     reach_service
+    reach_client
     DESTINATION lib/${PROJECT_NAME})
+
+ament_python_install_package(${PROJECT_NAME})
+
 
 install(PROGRAMS
-    nodes/reach_client_test.py
+    scripts/reach_client_test.py
     DESTINATION lib/${PROJECT_NAME})
-
-install(DIRECTORY launch
-    DESTINATION share/${PROJECT_NAME})
     
 ament_package()

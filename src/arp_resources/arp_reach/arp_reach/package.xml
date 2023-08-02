@@ -13,10 +13,8 @@
     <buildtool_depend>ament_cmake</buildtool_depend>
     <buildtool_depend>ament_cmake_python</buildtool_depend>
 
+    <exec_depend>rclcpp</exec_depend>
     <exec_depend>rclpy</exec_depend>
-
-    <depend>ament_cmake</depend>
-    <depend>rclcpp</depend>
 
     <exec_depend>arp_msgs</exec_depend>
     <exec_depend>std_msgs</exec_depend>
@@ -26,8 +24,6 @@
     <exec_depend>yaml-cpp</exec_depend>
     
     <exec_depend>arp_deployment_gp20</exec_depend>
-
-    <exec_depend>python3</exec_depend>
     
     <export>
         <build_type>ament_cmake</build_type>
