@@ -46,14 +46,6 @@ int main(int argc, char** argv)
     const std::string config_name = get<std::string>(reach_ros::utils::getNodeInstance(), "config_name");
     const boost::filesystem::path results_dir(get<std::string>(reach_ros::utils::getNodeInstance(), "results_dir"));
 
-    //sample_request
-    //const YAML::Node config = YAML::LoadFile(sample_request->yaml_filepath);
-    //const std::string config_name = std::string(sample_request->yaml_name);
-    //const boost::filesystem::path results_dir(sample_request->results_dir);
-    //
-    //Run the reach Study
-    //reach::runReachStudy(config, config_name, results_dir, false);
-
     // Run the reach study
     reach::runReachStudy(config, config_name, results_dir, true);
   }

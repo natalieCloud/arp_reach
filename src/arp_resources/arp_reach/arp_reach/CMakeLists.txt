@@ -50,6 +50,7 @@ foreach(dep ${ROS2_DEPS})
     find_package(${dep} REQUIRED)
 endforeach()
 
+
 install(DIRECTORY launch config 
     DESTINATION share/${PROJECT_NAME})
 
