@@ -11,45 +11,62 @@ This package is orginized around 3 main ROS services and their support files, th
 
 To sucessfully build this project one must have minimum [ROS 2 Humble](https://docs.ros.org/en/humble/Installation.html) installed, as well as [python3](https://www.python.org/downloads/) configs set up!
 
-To build this package in the base directory first call<br>
+### Installation
+
+First, clone the repository:
+
+```
+cd ~/path/to/workspace/src
+git clone https://github.com/natalieCloud/arp_reach.git
+cd ..
+```
+(If using gitkracken ensure submodules are pulled down!)
+
+Install those dependencies! (Reach, Reach_Ros, Boost, etc)
+
+```
+vcs import src < src/arp_reach/dependencies.repos
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+### Build
+
+To build this package in the base directory first call
 
 ```
     source /opt/ros/humble/setup.bash
 ```
-<br>
-Then navigate towards the root of the workspace and build the project:<br>
+
+Then navigate towards the root of the workspace and build the project:
 
 ```
-    cd /path/to/workspace
+    cd /path/to/workspace/src
     colcon build --symlink-install
 ```
-<br>
-That is, if everything was working which it isn't yet- so right now you'll have to use
-the packages selection to make sure that it builds sucessfully, so alternativley run:<br>
 
-```
-    colcon build --packages-select arp_msgs arp_deployment_gp20 pcd_processing xml_processing reach reach_ros2 --symlink-install
-```
-
-<br>
 Once the package has finished building make sure to source the install
 
 ```
     source ./install/setup.bash 
 ```
-<br>
-Update: Current sucessfull builds are arp_msgs, pcd_processing, and xml_processing - > key note with the pcd_processing though you'll have to have python configured for the compiler you're using!
+Update: All build sucessfully - > key note with the pcd_processing though, you'll have to have python configured for the compiler you're using!
 
 ### Executables
 
-[**Main launch**]()
-- arp_reach_config.launch.py (Not made yet--- [issue #24](https://github.com/natalieCloud/arp_reach/issues/24) TODO!)
+[**Main Launch File**]()
+- arp_reach_config.launch.xml, launches all service nodes (Not made yet--- [issue #24](https://github.com/natalieCloud/arp_reach/issues/24) TODO!)
+
+[**Test Config File**]()
+- arp_reach-test.launch.xml, launches all of the test client nodes (Not made yet--- [issue #24](https://github.com/natalieCloud/arp_reach/issues/24) TODO!)
 
 [**arp_msgs**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_msgs) 
 - None Y(^u^)Y
 
 [**arp_deployment_gp20**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_deployment_gp20)
 - None Y(^w^)Y
+
+[**arp_reach**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/arp_reach)
+- None that are working right now ( ; _ ; )
   
 [**pcd_processing**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/pcd_processing) 
 - PoseArrayToPCDClient
