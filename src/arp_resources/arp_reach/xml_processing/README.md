@@ -1,6 +1,6 @@
 # xml_processing README
 
-Hello there! This is the readmne for the xml_processing package! This package is one of the many developed alongside others in order to provide `Reach` functionality to the [ar_paint](https://github.com/OSU-AIMS/augmented-reality-painting) project!
+Hello there! This is the readme for the xml_processing package! This package is one of the many developed alongside others in order to provide `Reach` functionality to the [ar_paint](https://github.com/OSU-AIMS/augmented-reality-painting) project!
 
 What xml_processing does is that it provides a service node that would read in the client's `Pose Array` and `Reach DB file` and parses through the database (XML) file, and returns the original `Pose Array` with a corresponding array of `reach scores`! Both of these files are currently stored in the tmp folder (which is unfortunatley not OS agnostic :(  ...yet- see [issue #13](https://github.com/natalieCloud/arp_reach/issues/13))
 
