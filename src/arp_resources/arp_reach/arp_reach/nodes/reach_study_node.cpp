@@ -16,18 +16,14 @@
 #include <reach/reach_study.h>
 #include <reach_ros/utils.h>
 
-#include <reach/plugin_utils.h>
-#include <reach/interfaces/ik_solver.h>
-#include <boost_plugin_loader/plugin_loader.hpp>
-#include <boost/algorithm/string.hpp>
-#include <rclcpp/rclcpp.hpp>
+#include <stdlib.h>
 
 #include <chrono>
 #include <thread>
 #include <yaml-cpp/yaml.h>
 
 template <typename T>
-T get(const std::shared_ptr<rclcpp::Node> node, const std::string& key)
+T get(const std::shared_ptr<rclcpp::Node> node, const std::string &key)
 {
   T val;
   if (!node->get_parameter(key, val))
@@ -35,12 +31,21 @@ T get(const std::shared_ptr<rclcpp::Node> node, const std::string& key)
   return val;
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
   try
   {
+
     // Initialize ROS
     rclcpp::init(argc, argv);
+
+    // Initilize enviornment variables!
+    int err = setenv("REACH_PLUGINS", "reach_ros_plugins", 1);
+    if (err != 0)
+    {
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Plugin environment failed to set. Aborting...");
+      return 1; // If the plugin enviornment has not been set than the reach study is inviable!
+    }
 
     const YAML::Node config = YAML::LoadFile(get<std::string>(reach_ros::utils::getNodeInstance(), "config_file"));
     const std::string config_name = get<std::string>(reach_ros::utils::getNodeInstance(), "config_name");
@@ -49,7 +54,7 @@ int main(int argc, char** argv)
     // Run the reach study
     reach::runReachStudy(config, config_name, results_dir, true);
   }
-  catch (const std::exception& ex)
+  catch (const std::exception &ex)
   {
     std::cerr << ex.what() << std::endl;
     return -1;

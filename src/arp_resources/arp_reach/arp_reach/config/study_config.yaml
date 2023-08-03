@@ -24,6 +24,6 @@ display:
   use_full_color_range: true
 target_pose_generator:
   name: PointCloudTargetPoseGenerator
-  pcd_file: package://reach_config/config/poseArray.pcd
+  pcd_file: package://arp_reach/config/poseArray.pcd
 logger:
   name: BoostProgressConsoleLogger

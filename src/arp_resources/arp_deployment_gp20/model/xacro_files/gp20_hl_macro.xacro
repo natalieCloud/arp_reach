@@ -20,7 +20,7 @@
     <link name="${prefix}link_1_s">
         <visual>
             <geometry>
-                <mesh filename="package://rarp_deployment_gp20/model/mesh_files/visual/link_1_s.stl"/>
+                <mesh filename="package://arp_deployment_gp20/model/mesh_files/visual/link_1_s.stl"/>
             </geometry>
             <xacro:material_yaskawa_blue/>
         </visual>
@@ -95,6 +95,7 @@
             </geometry>
         </collision>
     </link>
+    <link name="${prefix}tool0" />
     <!-- end of link list -->
 
     <!-- joint list -->
@@ -159,7 +160,7 @@
     </joint>
 
     <!-- ROS-Industrial 'tool0' frame - all-zeros tool frame -->
-    <link name="${prefix}tool0"/>
+    
     <joint name="${prefix}flange-tool0" type="fixed">
       <origin xyz="0 0 0" rpy="${radians(180)} -${radians(90)} 0"/>
       <parent link="${prefix}flange"/>

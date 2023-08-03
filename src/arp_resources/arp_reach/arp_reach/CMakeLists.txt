@@ -62,6 +62,10 @@ add_executable(reach_study nodes/reach_study_node.cpp)
 target_link_libraries(reach_study PUBLIC reach::reach yaml-cpp)
 ament_target_dependencies(reach_study PUBLIC ${ROS2_DEPS} rclcpp reach_ros reach boost_plugin_loader)
 
+add_executable(test_service_node nodes/test_service_node.cpp)
+target_link_libraries(test_service_node PUBLIC reach::reach yaml-cpp)
+ament_target_dependencies(test_service_node PUBLIC ${ROS2_DEPS} rclcpp reach_ros reach boost_plugin_loader)
+
 
 add_executable(reach_client nodes/reach_client.cpp)
 ament_target_dependencies(reach_client rclcpp arp_msgs reach_ros reach boost_plugin_loader)
@@ -70,6 +74,7 @@ install(TARGETS
     reach_service
     reach_client
     reach_study
+    test_service_node
     DESTINATION lib/${PROJECT_NAME})
 
 ament_python_install_package(${PROJECT_NAME})
