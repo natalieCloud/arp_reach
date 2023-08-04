@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<!--The launch file for the pcd_processing, arp_reach, and xml_processing nodes!-->
 <launch>
     <node pkg="pcd_processing" exec="PoseArrayToPCDService.py" output="screen" name="pcd_service"/>
     <include file="$(find-pkg-share arp_reach)/launch/reach_study_node.launch.py"/>
