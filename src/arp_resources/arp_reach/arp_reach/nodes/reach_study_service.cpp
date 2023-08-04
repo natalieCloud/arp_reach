@@ -1,8 +1,9 @@
 #include <reach/reach_study.h>
+#include <reach_ros/utils.h>
 
 #include "arp_msgs/srv/run_reach_study.hpp"
-#include "rclcpp/rclcpp.hpp"
 
+#include <stdlib.h>
 
 #include <chrono>
 #include <thread>
@@ -10,45 +11,54 @@
 
 #include <yaml-cpp/yaml.h>
 
-void run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> request,
+// Global **Used rn cause they are not pased as args to the service call! (yet)
+YAML::Node config;
+std::string config_name;
+boost::filesystem::path results_dir;
+
+// **
+// Following block of code was developed by Southwest Research Institute, 2019
+//
+// Accessible at: https://github.com/ros-industrial/reach_ros2
+//
+template<typename T>
+T get(const std::shared_ptr<rclcpp::Node> node, const std::string &key)
+{
+    T val;
+    if (!node->get_parameter(key, val))
+        throw std::runtime_error("Failed to get '" + key + "' parameter");
+    return val;
+}
+// **
+
+int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> request,
         std::shared_ptr<arp_msgs::srv::RunReachStudy::Response> response) {
 
-    try
-    {
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "testing try");
-        const YAML::Node config = YAML::LoadFile(request->yaml_filepath.c_str());
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "testing yaml");
-        const std::string config_name = request->config_name.c_str();
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "testing config name");
-        const boost::filesystem::path results_dir(request->results_dir.c_str());
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Service called, about to ruin reach node");
+    try {
+        if (!request->signal)
+            throw std::runtime_error("Reach study cannot be run. Signal not recived! :(");
+
+        // TODO: In refactor pass in request params over the launch params! 
+        
         reach::runReachStudy(config, config_name, results_dir, false);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Reach node called! check the directory!");
 
-        boost::filesystem::path subdir(config_name);
-        boost::filesystem::path file("reach.db.xml");
-        boost::filesystem::path full_path = results_dir / subdir / file;
+    } catch (const std::exception &ex) {
 
-        response->results_filepath = full_path.generic_string();
-        response->sucess = true;
-        response->message = "Sucessfully called reach study!";
-
+        std::cerr << ex.what() << std::endl;
+        return 1;
     }
-    catch (const std::exception &ex) {
-
-        boost::filesystem::path results_dir(request->results_dir);
-        boost::filesystem::path subdir(request->config_name);
-        boost::filesystem::path file("reach.db.xml");
-        boost::filesystem::path full_path = results_dir / subdir / file;
-
-        response->results_filepath = full_path.generic_string();
-        response->sucess = false;
-        response->message = ex.what();
-    }
+    return 0;
 }
 
+
 int main(int argc, char **argv) {
+
     rclcpp::init(argc, argv);
+
+    config = YAML::LoadFile(get<std::string>(reach_ros::utils::getNodeInstance(), "config_file"));
+    config_name = get<std::string>(reach_ros::utils::getNodeInstance(), "config_name");
+    boost::filesystem::path results(get<std::string>(reach_ros::utils::getNodeInstance(), "results_dir"));
+    results_dir = results;
 
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("arp_reach");
     rclcpp::Service<arp_msgs::srv::RunReachStudy>::SharedPtr service = 

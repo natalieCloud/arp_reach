@@ -1,6 +1,7 @@
 string yaml_filepath #The filepath to the configuration file
 string config_name # The name of the config file, (will be factored into the results dir)
 string results_dir # The diectory in which the results will be saved!
+bool signal # If the reach study can be run or not!
 ---
 string results_filepath # The path to the file in which the results are saved 
 bool sucess # If the reach study was performed sucessfully!

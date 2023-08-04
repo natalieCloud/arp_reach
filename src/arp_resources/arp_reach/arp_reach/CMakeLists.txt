@@ -34,8 +34,8 @@ find_package(boost_plugin_loader REQUIRED)
 find_package(arp_deployment_gp20 REQUIRED)
 find_package(yaml-cpp REQUIRED)
 
-# ROS 2 dependent packages
-set(ROS2_DEPS
+# Reach dependent packages
+set(REACH_DEPS
     tf2_eigen
     interactive_markers
     moveit_core
@@ -44,41 +44,30 @@ set(ROS2_DEPS
     sensor_msgs
     visualization_msgs
     std_msgs
-    arp_msgs)
+    arp_msgs
+    boost_plugin_loader)
 
-foreach(dep ${ROS2_DEPS})
+foreach(dep ${REACH_DEPS})
     find_package(${dep} REQUIRED)
 endforeach()
-
 
 install(DIRECTORY launch config 
     DESTINATION share/${PROJECT_NAME})
 
 add_executable(reach_service nodes/reach_study_service.cpp)
 target_link_libraries(reach_service PUBLIC reach::reach yaml-cpp)
-ament_target_dependencies(reach_service PUBLIC ${ROS2_DEPS} rclcpp reach_ros reach boost_plugin_loader)
-
-add_executable(reach_study nodes/reach_study_node.cpp)
-target_link_libraries(reach_study PUBLIC reach::reach yaml-cpp)
-ament_target_dependencies(reach_study PUBLIC ${ROS2_DEPS} rclcpp reach_ros reach boost_plugin_loader)
-
-add_executable(test_service_node nodes/test_service_node.cpp)
-target_link_libraries(test_service_node PUBLIC reach::reach yaml-cpp)
-ament_target_dependencies(test_service_node PUBLIC ${ROS2_DEPS} rclcpp reach_ros reach boost_plugin_loader)
-
+ament_target_dependencies(reach_service PUBLIC ${REACH_DEPS} rclcpp reach_ros reach)
 
 add_executable(reach_client nodes/reach_client.cpp)
-ament_target_dependencies(reach_client rclcpp arp_msgs reach_ros reach boost_plugin_loader)
+ament_target_dependencies(reach_client rclcpp arp_msgs reach_ros reach)
 
 install(TARGETS
     reach_service
     reach_client
-    reach_study
-    test_service_node
     DESTINATION lib/${PROJECT_NAME})
 
-ament_python_install_package(${PROJECT_NAME})
 
+ament_python_install_package(${PROJECT_NAME})
 
 install(PROGRAMS
     scripts/reach_client_test.py

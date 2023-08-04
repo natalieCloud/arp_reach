@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="pcd_processing" exec="PoseArrayToPCDService.py" output="screen" name="pcd_service"/>
+    <include file="$(find-pkg-share arp_reach)/launch/reach_study_node.launch.py"/>
+    <node pkg="xml_processing" exec="xml_parse_service" output="screen" name="xml_service"/>
+</launch>

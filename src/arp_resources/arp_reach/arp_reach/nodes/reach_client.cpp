@@ -45,6 +45,8 @@ int main(int argc, char **argv) {
     std::string results = "arpaint_project/arp_reach_ws/install/reach_ros/share/reach_ros";
     std::string resultsdir = getenv("HOME") + results;
     request->results_dir = resultsdir;
+
+    request->signal = true;
     
     while(!client->wait_for_service(1s)) {
         if(!rclcpp::ok()) {
