@@ -11,7 +11,7 @@
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
-    std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml_filepath.c_str());
+    std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml.xml_filepath.c_str());
 
     std::vector<double> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
     

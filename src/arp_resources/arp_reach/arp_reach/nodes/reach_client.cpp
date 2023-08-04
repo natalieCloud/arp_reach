@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
 
     //std::string yamldir = getenv("HOME") + yaml;
 
-    request->yaml_filepath = curr_yaml.c_str();
+    request->yaml.yaml_filepath = curr_yaml.c_str();
 
     request->config_name = "study_config";
 

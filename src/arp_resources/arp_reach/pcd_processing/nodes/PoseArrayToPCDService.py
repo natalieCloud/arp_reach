@@ -43,12 +43,12 @@ class GeneratePCDService(Node):
         """
         self.get_logger().info("Called callback...\n")
 
-        pcd_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "poseArray.pcd"))
-        yaml_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "study_config.yaml"))
+        pcd_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "arp_reach", "share", "arp_reach", "poseArray.pcd"))
+        yaml_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "arp_reach", "share", "arp_reach", "study_config.yaml"))
 
-        response.yaml_filepath = yaml_filepath
+        response.yaml.yaml_filepath = yaml_filepath
         pcd.write_file(pcd_filepath, request.waypoints)
-        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/poseArray.pcd') #Look into package resource packs
+        yaml.write_yaml(response.yaml.yaml_filepath, 'package://arp_reach/poseArray.pcd') #Look into package resource packs
 
         return response
 

@@ -23,10 +23,10 @@ int main(int argc, char **argv) {
     
     auto request = std::make_shared<arp_msgs::srv::FormatPosesFromXML::Request>();
 
-    std::string extension = "/arpaint_pjt/arp_reach_ws/install/reach_config/share/reach_config/study_config/reach.db.xml";
+    std::string extension = "/arpaint_pjt/arp_reach_ws/install/arp_reach_launch/share/arp_reach/study_config/reach.db.xml";
     std::string homedir = getenv("HOME") + extension;
 
-    request->xml_filepath = homedir;
+    request->xml.xml_filepath = homedir;
 
     auto poseArr = geometry_msgs::msg::PoseArray();
     poseArr.header.frame_id = "world";
