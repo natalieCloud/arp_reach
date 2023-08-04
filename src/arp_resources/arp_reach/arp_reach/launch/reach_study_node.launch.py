@@ -1,3 +1,8 @@
+##
+# Following file of code was developed by Southwest Research Institute, 2019
+# Accessible at: https://github.com/ros-industrial/reach_ros2
+##
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
