@@ -48,7 +48,7 @@ class GeneratePCDService(Node):
 
         response.yaml_filepath = yaml_filepath
         pcd.write_file(pcd_filepath, request.waypoints)
-        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/poseArray.pcd')
+        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/poseArray.pcd') #Look into package resource packs
 
         return response
 
@@ -62,7 +62,7 @@ def main():
     #print("Hello- this is the service")
     pcd_processor_service = GeneratePCDService()
 
-    rclpy.spin(pcd_processor_service)
+    rclpy.spin_once(pcd_processor_service)
 
     pcd_processor_service.destroy_node()
     rclpy.shutdown()
