@@ -3,5 +3,76 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
-}
+    "configurations": [
+        { 
+             "name": "(gdb) Debug Launch ROS Exec", 
+             "type": "cppdbg", 
+             "request": "launch", 
+             "program": "${workspaceFolder}/install/${input:package}/lib/${input:package}/${input:program}", 
+             "args": [], 
+             "stopAtEntry": true, 
+             "cwd": "${workspaceFolder}", 
+             "externalConsole": false, 
+             "MIMode": "gdb", 
+             "setupCommands": [ 
+                 { 
+                     "description": "Enable pretty-printing for gdb", 
+                     "text": "-enable-pretty-printing", 
+                     "ignoreFailures": true 
+                 } 
+             ] 
+         }, 
+         {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+         },
+         {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/install/${input:package}/lib/${input:package}/${input:program}",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "inputs": [
+                {
+                    "id": "package",
+                    "type": "promptString",
+                    "description": "Package name"
+                },
+                {
+                    "id": "program",
+                    "type": "promptString",
+                    "description": "Package name"
+                }
+            ]
+         }
+     ], 
+     "inputs": [ 
+         { 
+             "id": "package", 
+             "type": "promptString", 
+             "description": "Package name", 
+             "default": "" 
+         }, 
+         { 
+             "id": "program", 
+             "type": "promptString", 
+             "description": "Program name", 
+             "default": "" 
+         }, 
+     ]
+    }

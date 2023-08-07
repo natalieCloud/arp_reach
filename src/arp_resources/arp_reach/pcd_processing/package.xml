@@ -4,14 +4,16 @@
  <name>pcd_processing</name>
  <version>0.0.0</version>
  <description>
-    This package contains the client-server nodes that write a PoseArray's information into a PCD file, used in the arp-project.
+    This package builds the client and service nodes of the FormatPosesToPCD service! They take in a PoseArray
+    and then call packages functionality to parse those Poses into a pcd file, and then use the PCD in the
+    writing the yaml config file, which is then passed back to the client node whjich will then use the yaml to
+    run a reach study!
  </description>
  <maintainer email="ntchmura@gmail.com">Natalie Chmura</maintainer>
  <license>Apache License 2.0</license>
 
  <buildtool_depend>ament_cmake</buildtool_depend>
  <buildtool_depend>ament_cmake_python</buildtool_depend>
-
 
  <exec_depend>rclpy</exec_depend>
 

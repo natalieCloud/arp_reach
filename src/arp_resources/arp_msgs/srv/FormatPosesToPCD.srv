@@ -1,3 +1,4 @@
-geometry_msgs/PoseArray waypoints # The points along the path that reach will be performed on
+geometry_msgs/PoseArray waypoints # The PoseArray which will be then configured into a pcd file that will be used in reach!
 ---
-string yaml_filepath # The filepath for the yaml file that contains the reach configuration data, including the genrated pcd file
+arp_msgs/YAMLFile yaml # The filepath for the yaml file that contains the reach configuration data, including the genrated pcd file!
+bool sucess #If the file was written to sucessfully then the result is true! If any excpetions are thrown a false reult is returned!

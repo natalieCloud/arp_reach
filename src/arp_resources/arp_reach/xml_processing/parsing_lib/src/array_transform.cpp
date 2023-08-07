@@ -3,13 +3,14 @@
 /**
  * @author Natalie Chmura 
  * 
- * @brief A class that transforms a 16-point pose array into its corresponding quaternion pose 
+ * @brief These functions used in series transform a 16-point pose array into its corresponding quaternion pose 
  * and transformation matrix!
  */
 
 namespace ReachArray {
 
     Eigen::Quaternion<double> ArrayTF::getQuaternion(double * poseArray) {
+
         Eigen::Quaternion<double> quat = Eigen::Quaternion<double>(setIsometry(poseArray).rotation());
         quat.x() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(quat.x());
         quat.y() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(quat.y());
@@ -19,6 +20,7 @@ namespace ReachArray {
     }
 
     Eigen::Vector3d ArrayTF::getTranslation(double * poseArray) {
+
         auto loc = Eigen::Matrix4d(poseArray).block<3,1>(0, 3);
         loc(0, 0) = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(loc(0, 0)); //x
         loc(1, 0) = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(loc(1, 0)); //y
@@ -27,11 +29,9 @@ namespace ReachArray {
     }
 
     Eigen::Isometry3d ArrayTF::setIsometry(double * poseArray) {
+
         Eigen::Matrix4d matrix(poseArray);
         Eigen::Isometry3d poseMatrix = Eigen::Isometry3d::Identity();
-
-        //Applying the rotation before the transformation altered the transformation
-        //which is why the transform is applied first! (^-^)
         poseMatrix.translate(matrix.block<3, 1>(0, 3));
         poseMatrix.rotate(matrix.block<3, 3>(0, 0));
 

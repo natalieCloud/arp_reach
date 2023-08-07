@@ -1,0 +1,8 @@
+arp_msgs/YAMLFile yaml #The filepath to the configuration file to be used in reach!
+string config_name # The name of the config file, (will be factored into the results dir)
+string results_dir # The diectory in which the results will be saved!
+bool signal # If the reach study can be run yet or not! (Depends on the sucessful run of the pcd_processing service)
+---
+arp_msgs/XMLFile results # The path to the file in which the results are saved 
+bool sucess # If the reach study was performed sucessfully!
+string message # Error or sucess message, when applicable!

@@ -8,12 +8,21 @@
       "includePath": [
         "/opt/ros/humble/include/**",
         "/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/pcd_processing/include/**",
-        "/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/reach_config/include/**",
+        "/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/arp_reach/include/**",
         "/home/chmura.18/arpaint_pjt/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/xml_processing/include/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/reach/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/reach/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/reach_ros/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/reach_ros/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/pcd_processing/lib/pcd_processing/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/xml_processing/lib/xml_processing/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/arp_reach/lib/arp_reach/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/pcd_processing/include/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/xml_processing/include/**",
+        "home/chmura.18/arpaint_pjt/arp_reach_ws/install/arp_reach/include/**",
         "/home/chmura.18/arpaint_pjt/reach_ws/install/reach_ros/include/**",
         "/home/chmura.18/arpaint_pjt/reach_ws/install/reach/include/**",
         "/home/chmura.18/arpaint_pjt/reach_ws/install/boost_plugin_loader/include/**",
-        "/opt/ros/humble/include/**",
         "/home/chmura.18/arpaint_pjt/reach_ws/src/boost_plugin_loader/include/**",
         "/home/chmura.18/arpaint_pjt/reach_ws/src/reach/include/**",
         "/home/chmura.18/arpaint_pjt/reach_ws/src/reach_ros2/include/**",
@@ -22,8 +31,10 @@
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",
       "compilerPath": "/usr/bin/gcc",
-      "cStandard": "gnu11",
-      "cppStandard": "c++14"
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "defines": [],
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json"
     }
   ],
   "version": 4

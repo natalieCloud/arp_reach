@@ -1,3 +1,8 @@
+##
+# Following file of code was developed by Southwest Research Institute, 2019
+# Accessible at: https://github.com/ros-industrial/reach_ros2
+##
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
@@ -30,9 +35,9 @@ parameters = [
   {'name': 'robot_description_semantic_file',       'description': 'Path to the SRDF file',                           'default': PathJoinSubstitution([FindPackageShare('arp_deployment_gp20'), 'model', 'reach_study', 'gp20_study.srdf'])},
   {'name': 'robot_description_kinematics_file',     'description': 'Path to the MoveIt kinematics file',              'default': PathJoinSubstitution([FindPackageShare('arp_deployment_gp20'), 'model', 'reach_study', 'gp20_kinematics.yaml'])},
   {'name': 'robot_description_joint_limits_file',   'description': 'Path to the MoveIt joint limits file',            'default': PathJoinSubstitution([FindPackageShare('arp_deployment_gp20'), 'model', 'reach_study', 'gp20_joint_limits.yaml'])},
-  {'name': 'config_file',                           'description': 'Path to the reach study configuration YAML file', 'default': PathJoinSubstitution([FindPackageShare('reach_config'), 'study_config.yaml'])},
+  {'name': 'config_file',                           'description': 'Path to the reach study configuration YAML file', 'default': PathJoinSubstitution([FindPackageShare('arp_reach'), 'config', 'study_config.yaml'])},
   {'name': 'config_name',                           'description': 'Reach study configuration name',                  'default': 'study_config'},
-  {'name': 'results_dir',                           'description': 'Directory in which to save reach study results',  'default': PathJoinSubstitution([FindPackageShare('reach_config')])},
+  {'name': 'results_dir',                           'description': 'Directory in which to save reach study results',  'default': PathJoinSubstitution([FindPackageShare('arp_reach')])},
 ]
 
 
@@ -59,8 +64,8 @@ def launch(context, *args, **kwargs):
 
     return [
         Node(
-            package='reach_ros',
-            executable='reach_ros_node',
+            package='arp_reach',
+            executable='reach_service',
             output='screen',
             emulate_tty=True,
             parameters=[{

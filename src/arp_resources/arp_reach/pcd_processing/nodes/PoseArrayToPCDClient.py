@@ -13,31 +13,33 @@ import numpy as np
 
 class GeneratePCDClient(Node):
     """
-    A class to represent a Node object of type client that takes in a poseArray and 
-    generates a pcd file from a service!
+    This class represents a type of client node from the FormatPosesToPCD.srv found in the arp_msgs package!
+    The client sends a request that is comprised of a PoseArray to the service, which then processes it into
+    a pcd file, whose filepath is then included into a yaml file (Used as the configuration file for arp_reach)
+    The path to the configuration file is then handed back to the client, along with a boolean indicating sucess!
     
     ...
 
     Methods
     -------
     __init__(self):
-        Initilizes the node and sends a request to the service should the service be active
-        else, waits and tries again.
+        Initilizes the node and sends a request to the service should the service be active!
+        Else, it waits and tries again in 1s.
 
     send_request(self, waypoints):
-        Assigns the waypoints to itself and spins until complete (May not be sucessful) returns
-        the result!
+        Assigns the waypoints to its request and spins until complete and then
+        returns the result and if the request was a sucess and we are good to 
+        move to the second phase!
     """
 
     def __init__(self):
         """
-        Constructs all the nessesary attributes for the Node object
+        Constructs all the nessesary attributes for the Node object!
         """
         super().__init__('pcd_processor_client')
         self.cli = self.create_client(FormatPosesToPCD, 'process_pcd')
-        self.get_logger().debug('test statement')
         while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not avaliable, waiting again...')
+            self.get_logger().info('Service not avaliable, waiting again... :/')
         self.req = FormatPosesToPCD.Request()
 
     def send_request(self, waypoints):
@@ -58,8 +60,7 @@ def main():
     from that poseArray!
     """
     rclpy.init()
-    #print("Hello- this is the client")
-    #print(args)
+    
     pcd_processor = GeneratePCDClient()
 
     req = FormatPosesToPCD.Request()

@@ -7,9 +7,9 @@ if(NOT CMAKE_C_STANDARD)
     set(CMAKE_C_STANDARD 99)
 endif()
 
-# Set C++14 Standard
+# Set C++17 Standard
 if (NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD 17)
 endif()
 
 # Dependencies
