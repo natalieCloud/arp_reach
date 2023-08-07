@@ -76,7 +76,7 @@ def write_yaml(out_file_name, pcd_filename):
         pcd_filename: str
             The file that needs to be included as the pcd file!
     """
-    data = { 
+    data = {
         'optimization':{
             'radius':0.2,
             'max_steps':10, 
@@ -112,7 +112,12 @@ def write_yaml(out_file_name, pcd_filename):
         },
     }
 
-    file = open(out_file_name, "w")
+    try:
+        file = open(out_file_name, "w")
+    except (ValueError):
+        print("File error- check path provided")
+        return
+
     yaml.dump(data, file, sort_keys=False)
     file.close()
 

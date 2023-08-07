@@ -71,7 +71,12 @@ def write_file(out_file_name, pose_arr):
         poseArr : PoseArray
             The poseArray that all the information will be taken from!
     """
-    file_out = open(out_file_name, "w")
+
+    try:
+        file_out = open(out_file_name, "w")
+    except ValueError:
+        print("File Error: Check path provided")
+
     size = len(pose_arr.poses)
 
     file_out.write("# .PCD v0.7 - Point Cloud Data file format\n")
@@ -103,7 +108,11 @@ def read_poses(in_file_name):
     """
     poses = PoseArray()
 
-    file_in = open(in_file_name, "r")
+    try:
+        file_in = open(in_file_name, "r")
+    except ValueError:
+        print("File Error: Check file path")
+
     file_in.readline() # PCD v0.7 etc
     file_in.readline() # Version 0.7
     file_in.readline() # Fields
