@@ -1,3 +1,14 @@
+/**
+ * @author Natalie Chmura
+ *
+ * This file runs a reach_study based node that functions as a client calling the launch file launched service node! 
+ * The client's request is comprised of a  config_file, config_name, reach results directory, and a boolean
+ * that indicates when the study can be run, along with the other parameters given by the launch file (which is how this
+ * node is spun in the first place as opposed to the other ones that can be launched singularly, the launch parameters
+ * help with the reach_ros interfaces that make up the reach study!) It is then sent to the service node, and recives 
+ * A filepath to the reach results file, as a well as a boolean indicating that the reach study ran sucessfully!
+ */
+
 #include <rclcpp/rclcpp.hpp>
 #include "arp_msgs/srv/run_reach_study.hpp"
 

@@ -1,3 +1,13 @@
+/**
+ * @author Natalie Chmura
+ * 
+ * @brief This file runs a reach_study based node that functions as a service rather than a free spinning node! 
+ * The node takes in the client's request with the config_file, config_name, reach results directory, and a boolean
+ * that indicates when the study can be run, along with the other parameters given by the launch file (which is how this
+ * node is spun in the first place as opposed to the other ones that can be launched singularly, the launch parameters
+ * help with the reach_ros interfaces that make up the reach study!)
+*/
+
 #include <reach/reach_study.h>
 #include <reach_ros/utils.h>
 

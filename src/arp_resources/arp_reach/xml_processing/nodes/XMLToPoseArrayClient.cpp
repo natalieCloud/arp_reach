@@ -1,8 +1,3 @@
-/**
- * @author Natalie Chmura
- * @maintainer Natalie Chmura email:ntchmura@gmail.com
-*/
-
 #include <rclcpp/rclcpp.hpp>
 #include "arp_msgs/srv/format_poses_from_xml.hpp"
 #include "geometry_msgs/msg/pose.hpp"
