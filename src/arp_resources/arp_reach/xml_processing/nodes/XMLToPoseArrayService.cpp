@@ -23,6 +23,13 @@
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
+    if (!request->signal) {
+            
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "State not ready to call service, aborting.");
+        response->sucess = false;
+        return;
+    }
+        
     try {
 
         std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml.xml_filepath.c_str());
