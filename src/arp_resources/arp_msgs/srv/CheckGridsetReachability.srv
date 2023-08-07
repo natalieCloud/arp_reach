@@ -1,3 +1,3 @@
-string pcd_filepath # The filepath for the reach points database file
+arp_msgs/PCDFile pcd # The filepath for the poseArray reach point file!
 ---
-string xml_filepath # The filepath for the reach results database file
+arp_msgs/XMLFile xml # The filepath for the reach results database file!

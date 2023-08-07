@@ -10,7 +10,6 @@
 
 using namespace std::chrono_literals;
 
-//TODO Change:
 #include <filesystem>
 #include <stdio.h>
 
@@ -25,20 +24,13 @@ int main(int argc, char **argv) {
         node->create_client<arp_msgs::srv::RunReachStudy>("run_reach_study");
 
     auto request = std::make_shared<arp_msgs::srv::RunReachStudy::Request>();
-
-    //std::string yaml = "/arpaint_project/arp_reach_ws/arp_reach/src/arp_resources/arp_reach/arp_reach/config/study_config.yaml";
-    //auto cwd = getcwd();
-    //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), cwd);
     auto curr = fs::current_path();
-    //std::cout << curr.c_str() << std::endl;
     const fs::path sub_yaml = "/arp_reach/src/arp_resources/arp_reach/arp_reach/config/study_config.yaml";
     fs::path curr_yaml = curr / sub_yaml; 
 
     std::cout << curr_yaml.c_str() << std::endl;
 
-    //std::string yamldir = getenv("HOME") + yaml;
-
-    request->yaml_filepath = curr_yaml.c_str();
+    request->yaml.yaml_filepath = curr_yaml.c_str();
 
     request->config_name = "study_config";
 

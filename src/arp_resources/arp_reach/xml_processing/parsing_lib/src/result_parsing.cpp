@@ -28,17 +28,23 @@ std::vector<double> Retriever::getScoreData(geometry_msgs::msg::PoseArray poseKe
     std::vector<std::thread> threads;
     threads.reserve(num_threads);
 
-    for (int i = 0; i < num_threads; i++) {
-        threads.emplace_back(
-                std::thread {Retriever::populateResults,
-                (i * inc_size), ((i + 1) * inc_size), size, poseKeys, reachStudyMap, arrPtr}
-        );
-    }
-    for (auto& t : threads) {
+    try {
+        for (int i = 0; i < num_threads; i++) {
+            threads.emplace_back(
+                    std::thread {Retriever::populateResults,
+                    (i * inc_size), ((i + 1) * inc_size), size, poseKeys, reachStudyMap, arrPtr}
+            );
+        }
+
+        for (auto& t : threads) {
         t.join();
+        }
+
+        results.insert(results.end(), &resultArr[0], &resultArr[size]);
+    } catch (const std::exception &ex) {
+        std::cerr << "Error threading\n";
     }
 
-    results.insert(results.end(), &resultArr[0], &resultArr[size]);
     return results;
 }
 
@@ -55,7 +61,9 @@ void Retriever::populateResults(int start, int end, int max, geometry_msgs::msg:
 }
 
 XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData Retriever::getKey(geometry_msgs::msg::Pose * pose) {
+    
     XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData poseD;
+
     poseD.translation.x() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->position.x);
     poseD.translation.y() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->position.y);
     poseD.translation.z() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->position.z);
@@ -63,6 +71,7 @@ XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData Retriever::getKey(geometry_msgs:
     poseD.quater.y() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.y);
     poseD.quater.z() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.z);
     poseD.quater.w() = XML_PARSING_FLOAT_STANDARD_H::FloatSt::RoundSt::roundNano(pose->orientation.w);
+
     return poseD;
 }
 

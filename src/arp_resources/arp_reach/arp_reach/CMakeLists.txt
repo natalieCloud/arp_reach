@@ -11,9 +11,9 @@ if (NOT CMAKE_C_STANDARD)
     set(CMAKE_C_STANDARD 99)
 endif()
 
-# Set C++14
+# Set C++17
 if (NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD 17)
 endif()
 
 # Set C++ flags
@@ -54,11 +54,11 @@ endforeach()
 install(DIRECTORY launch config 
     DESTINATION share/${PROJECT_NAME})
 
-add_executable(reach_service nodes/reach_study_service.cpp)
+add_executable(reach_service nodes/reachStudyService.cpp)
 target_link_libraries(reach_service PUBLIC reach::reach yaml-cpp)
 ament_target_dependencies(reach_service PUBLIC ${REACH_DEPS} rclcpp reach_ros reach)
 
-add_executable(reach_client nodes/reach_client.cpp)
+add_executable(reach_client nodes/reachClient.cpp)
 ament_target_dependencies(reach_client rclcpp arp_msgs reach_ros reach)
 
 install(TARGETS

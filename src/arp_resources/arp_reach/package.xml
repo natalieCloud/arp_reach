@@ -4,7 +4,9 @@
     <name>arp_reach_launch</name>
     <version>0.0.0</version>
     <description>
-        The launch file that will launch the service nodes for the pcd_processing, xml_processing, and arp_reach packages.
+        This package contains a launch file which will launch the pcd_processing, xml_processing, and arp_reach service nodes!
+        As a result a client (Or series of clients) built for this pipline will handle the full pipline from PoseArray to the
+        results of those poses as a function of reach!
     </description>
     <author>Natalie T. Chmura</author>
     <maintainer email="chmura.18@osu.edu">Natalie T. Chmura (AIMS Lab @ The Ohio State University)</maintainer>

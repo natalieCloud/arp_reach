@@ -1,3 +1,8 @@
+/**
+ * @author Natalie Chmura
+ * @maintainer Natalie Chmura email:ntchmura@gmail.com
+*/
+
 #include <rclcpp/rclcpp.hpp>
 #include "arp_msgs/srv/format_poses_from_xml.hpp"
 #include "geometry_msgs/msg/pose.hpp"
@@ -7,12 +12,26 @@
 #include <cstdlib>
 #include <memory>
 
-/** TEST INCLUDES */
+/** TERMINAL TEST INCLUDES */
 #include <string>
 #include <stdlib.h>
 
-using namespace std::chrono_literals;
+using namespace std::chrono_literals; //For timer! Unessesary otherwise!
 
+/**
+ * @author Natalie Chmura
+ * 
+ * @brief This class instantiates a node that handles the request from FormatPosesFromXml.srv. It first pases 
+ * in a string representing the filepath of the reach_ros reach study results (Formatted in XMl), as well 
+ * as a PoseArray of all the points that we wish to extract the reach results for. Then it pases these to 
+ * the service which will return the original PoseArray as well as a corresponding array of reach scores 
+ * back to the client!
+*/
+
+/**
+ * Main! Instantiates the node and passes the request of waypoints along to the server node, which then
+ * returns those points along with an array of reach scores and a sucess boolean!
+*/
 int main(int argc, char **argv) {
 
     rclcpp::init(argc, argv);
@@ -23,10 +42,10 @@ int main(int argc, char **argv) {
     
     auto request = std::make_shared<arp_msgs::srv::FormatPosesFromXML::Request>();
 
-    std::string extension = "/arpaint_pjt/arp_reach_ws/install/reach_config/share/reach_config/study_config/reach.db.xml";
+    std::string extension = "/arpaint_pjt/arp_reach_ws/install/arp_reach_launch/share/arp_reach/study_config/reach.db.xml";
     std::string homedir = getenv("HOME") + extension;
 
-    request->xml_filepath = homedir;
+    request->xml.xml_filepath = homedir;
 
     auto poseArr = geometry_msgs::msg::PoseArray();
     poseArr.header.frame_id = "world";

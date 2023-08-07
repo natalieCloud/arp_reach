@@ -8,17 +8,43 @@
 #include <stdlib.h>
 #include <vector>
 
+/**
+ * @author Natalie Chmura
+ * 
+ * @brief This process instantiates a node that handles the service from FormatPosesFromXml.srv. It first takes the request 
+ * of the XML filepath and PoseArray from the client and then pases those off, first to the xml_parser, which 
+ * reads in the data from the file provided and outputs a data struct, which is then parsed by the result_parser, 
+ * which uses a multi-threaded parser to contruct a score array, which is then passed back to the client!
+*/
+
+/**
+ * The process_xml function takes in the client requests and returns the score array, orignal pose and boolean sucess!
+*/
 void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Request> request,
         std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Response> response) {
 
-    std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml_filepath.c_str());
+    try {
 
-    std::vector<double> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
+        std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml.xml_filepath.c_str());
+        std::vector<double> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
+
+        response->sucess = true;
+
+    } catch (const std::exception &ex) {
+
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), ex.what());
+        response->sucess = false;
+
+        return;
+    }
     
     response->waypoints = request->waypoints;
     response->scores = results;
 }
 
+/**
+ * Main! Instantiates the node!
+*/
 int main (int argc, char **argv) {
 
     rclcpp::init(argc, argv);

@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
+# Launch name for the arp_reach submodule!
 project(arp_reach_launch)
 
 # Set OS Compiler Standards

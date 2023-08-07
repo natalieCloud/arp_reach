@@ -15,19 +15,22 @@ from rclpy.node import Node
 
 class GeneratePCDService(Node):
     """
-    A class to represent a Node object of type service that takes in a poseArray and 
-    generates a pcd file from the file writer!
+    This class represents a type of service node from the FormatPosesToPCD.srv found in the arp_msgs package!
+    It takes in a request from the client which is comprised of a PoseArray, and then tries to run that 
+    PoseArray into the pcd processor, and then the resulting pcd filepath into the yaml file creator!
+    It then returns the yaml filepath and a boolean indicating sucess to the client, indicating whether
+    or not to turn to phase 2 of the node series! :)
     
     ...
 
     Methods
     -------
     __init__(self):
-        Initilizes the node and sends a request to the its function.
+        Initilizes the node and sends a request to its callback function.
 
-    process_pcd_callback(self, waypoints):
-        Assigns the waypoints to itself and spins until complete (May not be sucessful) returns
-        the result!
+    process_pcd_callback(self, request, response):
+        Grabs the client's waypoints and runs them through the pcd_file_maker as well as the yaml_file_maker!
+        Returns the yaml filepath as well as a boolean indicating sucess through the response!
     """
 
     def __init__(self):
@@ -43,12 +46,18 @@ class GeneratePCDService(Node):
         """
         self.get_logger().info("Called callback...\n")
 
-        pcd_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "poseArray.pcd"))
-        yaml_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "reach_config", "share", "reach_config", "study_config.yaml"))
+        pcd_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "arp_reach", "share", "arp_reach", "poseArray.pcd"))
+        yaml_filepath = str(os.path.join(os.path.dirname(os.getcwd()), "install", "arp_reach", "share", "arp_reach", "study_config.yaml"))
 
-        response.yaml_filepath = yaml_filepath
-        pcd.write_file(pcd_filepath, request.waypoints)
-        yaml.write_yaml(response.yaml_filepath, 'package://reach_config/poseArray.pcd') #Look into package resource packs
+        response.yaml.yaml_filepath = yaml_filepath
+
+        try:
+            pcd.write_file(pcd_filepath, request.waypoints)
+            yaml.write_yaml(response.yaml.yaml_filepath, 'package://arp_reach/poseArray.pcd') #Look into package pathing resource packs
+        except (ValueError, RuntimeError):
+            response.sucess = False
+        
+        response.sucess = True
 
         return response
 
@@ -59,10 +68,9 @@ def main():
     points into a file!
     """
     rclpy.init()
-    #print("Hello- this is the service")
     pcd_processor_service = GeneratePCDService()
 
-    rclpy.spin_once(pcd_processor_service)
+    rclpy.spin(pcd_processor_service)
 
     pcd_processor_service.destroy_node()
     rclpy.shutdown()
