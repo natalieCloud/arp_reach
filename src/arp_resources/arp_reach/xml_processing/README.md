@@ -4,6 +4,8 @@ Hello there! This is the readme for the xml_processing package! This package is 
 
 What xml_processing does is that it provides a service node that would read in the client's `Pose Array` and `Reach DB file` and parses through the database (XML) file, and returns the original `Pose Array` with a corresponding array of `reach scores`! Both of these files are currently stored in the tmp folder (which is unfortunatley not OS agnostic :(  ...yet- see [issue #13](https://github.com/natalieCloud/arp_reach/issues/13))
 
+![xml_processing](https://github.com/natalieCloud/arp_reach/assets/123828141/35dee723-2078-4d23-b35d-beeb56ef7fcf)
+
 ## Requirements to Build:
 
 To sucessfully build this project one must have minimum [ROS 2 Humble](https://docs.ros.org/en/humble/Installation.html) installed, as well as [python3](https://www.python.org/downloads/) configs set up!
