@@ -1,6 +1,7 @@
 arp_msgs/XMLFile xml # The filepath for the reach database file!
 geometry_msgs/PoseArray waypoints # The PoseArray which the reach study was performed on!
+boolean signal # A boolean representing whether or not the xml processing can begin!
 ---
 geometry_msgs/PoseArray waypoints # The PoseArray which the reach study was performed on!
 float64[] scores # An ordered array corresponding to the reach scores for each of the poses in the PoseArray!
-boolean sucess # A coolean representing whether or not the score assignment was sucessful!
+boolean sucess # A boolean representing whether or not the score assignment was sucessful!
