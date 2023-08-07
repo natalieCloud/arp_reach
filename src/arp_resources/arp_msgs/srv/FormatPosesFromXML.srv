@@ -3,3 +3,4 @@ geometry_msgs/PoseArray waypoints # The PoseArray which the reach study was perf
 ---
 geometry_msgs/PoseArray waypoints # The PoseArray which the reach study was performed on!
 float64[] scores # An ordered array corresponding to the reach scores for each of the poses in the PoseArray!
+boolean sucess # A coolean representing whether or not the score assignment was sucessful!
