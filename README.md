@@ -5,7 +5,7 @@
 
 <!--ARP_Reach (*augmented_reality_painting_reach_integration*) is a package that enables the integration of [Ros-Industrial-Reach](https://github.com/ros-industrial/reach) as well as [Ros_Industrial-Reach_Ros2](https://github.com/ros-industrial/reach_ros2) with the OSU-AIMS [augmented_reality_painting](https://github.com/OSU-AIMS/augmented-reality-painting) project! -->
 
-This package is orginized around 3 main ROS services and their support files, the services are found as [PCD_PROCESSING](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/pcd_processing) , [Reach_Config](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/reach_config), and [XML_PROCESSING](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/xml_processing) which process a data type of posearray to a pcd file, run that pcd file through reach to get the results database, and process that database back into a list full of the poseArray's scores, respectively. More information can be found in each of their respective README's for information on implementation
+This package is orginized around creating and supprting the integration of `reach_ros` through three main client service pairs and their support functions. The services are found as [PCD_PROCESSING] (https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/pcd_processing) , [Reach_Config](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/reach_config), and [XML_PROCESSING](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/xml_processing) which process a data type of `PoseArray` to a pcd file, run that pcd file through `Reach` to get the results database, and process that database back into a list full of the `PoseArray`'s scores, respectively. More information can be found in each of their respective README's for information on implementation
 
 ## Installation and Build 
 
@@ -20,7 +20,7 @@ cd ~/path/to/workspace/src
 git clone https://github.com/natalieCloud/arp_reach.git
 cd ..
 ```
-(If using gitkracken ensure submodules are pulled down!)
+Ensure submodules are pulled down and updated! (Check dependencies.repos for most recent working commit of each submodule!)
 
 Install those dependencies! (Reach, Reach_Ros, Boost, etc)
 
@@ -31,7 +31,7 @@ rosdep install --from-paths src --ignore-src -r -y
 
 ### Build
 
-To build this package in the base directory first call
+To build this package first navigate to the base directory and call:
 
 ```
     source /opt/ros/humble/setup.bash
@@ -49,15 +49,13 @@ Once the package has finished building make sure to source the install
 ```
     source ./install/setup.bash 
 ```
-Update: All build sucessfully - > key note with the pcd_processing though, you'll have to have python configured for the compiler you're using!
+While running the `PCD_Processing` package you'll want to ensure that you have python configured for the compiler you're using!
 
 ### Executables
 
-[**Main Launch File**]()
-- arp_reach_config.launch.xml, launches all service nodes (Not made yet--- [issue #24](https://github.com/natalieCloud/arp_reach/issues/24) TODO!)
-
-[**Test Config File**]()
-- arp_reach-test.launch.xml, launches all of the test client nodes (Not made yet--- [issue #24](https://github.com/natalieCloud/arp_reach/issues/24) TODO!)
+[**ARP_Reach_Launch**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/launch)
+- reach_launch.xml: Launches all of the service nodes from `PCD_Processing`, `XML_Processing`, and `ARP_Reach`!
+- state_launch.xml, launches all of the test client nodes in proper order!
 
 [**arp_msgs**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_msgs) 
 - None Y(^u^)Y
@@ -66,7 +64,8 @@ Update: All build sucessfully - > key note with the pcd_processing though, you'l
 - None Y(^w^)Y
 
 [**arp_reach**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/arp_reach)
-- None that are working right now ( ; _ ; )
+- reachStudyService
+- reachClient
   
 [**pcd_processing**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/pcd_processing) 
 - PoseArrayToPCDClient
