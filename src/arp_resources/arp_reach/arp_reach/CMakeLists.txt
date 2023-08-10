@@ -51,7 +51,7 @@ foreach(dep ${REACH_DEPS})
     find_package(${dep} REQUIRED)
 endforeach()
 
-install(DIRECTORY launch config 
+install(DIRECTORY launch
     DESTINATION share/${PROJECT_NAME})
 
 add_executable(reach_service nodes/reachStudyService.cpp)

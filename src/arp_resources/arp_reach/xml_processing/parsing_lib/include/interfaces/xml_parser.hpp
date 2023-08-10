@@ -23,6 +23,7 @@
  * (https://rapidxml.sourceforge.net/) and then into "Postructs" (Pose structs) which hold the reach
  * study's pose in quaternion form, the "reach score", and also a general bool indicating that the 
  * pose is reachable!
+ */
 
 /**
  * @namespace ReachXML

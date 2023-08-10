@@ -49,6 +49,9 @@ int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> reque
             throw std::runtime_error("Reach study cannot be run. Signal not recived! :(");
 
         // TODO: In refactor pass in request params over the launch params! 
+
+        config = YAML::LoadFile(std::string(request->config_name));
+
         
         reach::runReachStudy(config, config_name, results_dir, false);
 
