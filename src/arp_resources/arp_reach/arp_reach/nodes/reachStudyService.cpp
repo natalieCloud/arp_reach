@@ -45,8 +45,14 @@ int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> reque
         std::shared_ptr<arp_msgs::srv::RunReachStudy::Response> response) {
 
     try {
-        if (!request->signal)
-            throw std::runtime_error("Reach study cannot be run. Signal not recived! :(");
+        while (!request->signal) {
+            //DO NOTHING
+        }
+        //if (request->signal) {
+        //config = YAML::LoadFile(get<std::string>(reach_ros::utils::getNodeInstance(), "config_file"));
+        config_name = get<std::string>(reach_ros::utils::getNodeInstance(), "config_name");
+        boost::filesystem::path results(get<std::string>(reach_ros::utils::getNodeInstance(), "results_dir"));
+        results_dir = results;
 
         // TODO: In refactor pass in request params over the launch params! 
 
@@ -67,11 +73,6 @@ int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> reque
 int main(int argc, char **argv) {
 
     rclcpp::init(argc, argv);
-
-    config = YAML::LoadFile(get<std::string>(reach_ros::utils::getNodeInstance(), "config_file"));
-    config_name = get<std::string>(reach_ros::utils::getNodeInstance(), "config_name");
-    boost::filesystem::path results(get<std::string>(reach_ros::utils::getNodeInstance(), "results_dir"));
-    results_dir = results;
 
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("arp_reach");
     rclcpp::Service<arp_msgs::srv::RunReachStudy>::SharedPtr service = 

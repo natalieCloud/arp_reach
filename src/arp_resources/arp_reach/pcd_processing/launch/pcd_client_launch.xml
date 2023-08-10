@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<!--The Launch file for the client pcd processor node!-->
-<launch>
-    <node pkg="pcd_processing" exec="PoseArrayToPCDClient.py" output="screen"></node>
-</launch>
