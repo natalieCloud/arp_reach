@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
 
     auto request = std::make_shared<arp_msgs::srv::RunReachStudy::Request>();
     auto curr = fs::current_path();
-    const fs::path sub_yaml = "/arp_reach/src/arp_resources/arp_reach/arp_reach/config/study_config.yaml";
+    const fs::path sub_yaml = "/install/arp_reach_launch/share/arp_reach/study_config.yaml";
     fs::path curr_yaml = curr / sub_yaml; 
 
     std::cout << curr_yaml.c_str() << std::endl;

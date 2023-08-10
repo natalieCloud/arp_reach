@@ -15,25 +15,12 @@ endif()
 
 # Find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_python REQUIRED)
-find_package(rclpy REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(arp_msgs REQUIRED)
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 find_package(yaml-cpp REQUIRED)
-
-find_package(rosidl_default_generators REQUIRED)
-
-ament_python_install_package("pcd_processing")
-ament_python_install_package("file_makers")
-
-
-install(PROGRAMS
-    nodes/PoseArrayToPCDClient.py
-    nodes/PoseArrayToPCDService.py
-DESTINATION lib/${PROJECT_NAME})
 
 add_executable(pcd_service nodes/PoseArrayToPCDService.cpp
     file_makers_lib/src/PoseArrayToPCD.cpp

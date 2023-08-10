@@ -20,7 +20,7 @@ void YAMLFileWriter::writeYAML(std::string pathname, std::string fname) {
     out << YAML::Value << "0.2";
     out << YAML::Key << "max_steps";
     out << YAML::Value << "10";
-    out << YAML::Key << "step_improvment_threshold";
+    out << YAML::Key << "step_improvement_threshold";
     out << YAML::Value << "0.01";
     out << YAML::EndMap;
 

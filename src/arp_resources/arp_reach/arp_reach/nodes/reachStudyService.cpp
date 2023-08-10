@@ -55,8 +55,9 @@ int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> reque
         results_dir = results;
 
         // TODO: In refactor pass in request params over the launch params! 
+        //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), std::string(request->config_name))
 
-        config = YAML::LoadFile(std::string(request->config_name));
+        config = YAML::LoadFile(get<std::string>(reach_ros::utils::getNodeInstance(), "config_file"));
 
         
         reach::runReachStudy(config, config_name, results_dir, false);

@@ -1,0 +1,13 @@
+# .PCD v0.7 - Point Cloud Data file format
+VERSION 0.7
+FIELDS x y z normal_x normal_y normal_z curvature
+SIZE 4 4 4 4 4 4 4
+TYPE F F F F F F F
+COUNT 1 1 1 1 1 1 1
+WIDTH 2
+HEIGHT 1
+VIEWPOINT 0 0 0 1 0 0 0
+POINTS 2
+DATA ascii
+2.47669 0.225627 1.24439 -0.0935626 0.00898453 -0.995573 0
+0.5 0.1 2 0 0 0 0
