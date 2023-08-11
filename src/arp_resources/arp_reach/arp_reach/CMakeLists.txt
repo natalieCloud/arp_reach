@@ -16,6 +16,8 @@ if (NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 17)
 endif()
 
+set(CASM_BOOST_NO_CXX11_SCOPED_ENUMS ON)
+
 # Set C++ flags
 set(CMAKE_CXX_FLAGS -rdynamic)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
@@ -29,6 +31,7 @@ find_package(rclpy REQUIRED)
 find_package(reach REQUIRED)
 find_package(reach_ros REQUIRED)
 find_package(boost_plugin_loader REQUIRED)
+find_package(Boost COMPONENTS system filesystem REQUIRED)
 
 # External Packages
 find_package(arp_deployment_gp20 REQUIRED)
@@ -55,10 +58,15 @@ install(DIRECTORY launch
     DESTINATION share/${PROJECT_NAME})
 
 add_executable(reach_service nodes/reachStudyService.cpp)
-target_link_libraries(reach_service PUBLIC reach::reach yaml-cpp)
+target_link_libraries(reach_service PUBLIC reach::reach yaml-cpp Boost::system Boost::filesystem)
 ament_target_dependencies(reach_service PUBLIC ${REACH_DEPS} rclcpp reach_ros reach)
 
 add_executable(reach_client nodes/reachClient.cpp)
+target_link_libraries(
+    reach_client
+    Boost::system
+    Boost::filesystem
+)
 ament_target_dependencies(reach_client rclcpp arp_msgs reach_ros reach)
 
 install(TARGETS

@@ -46,9 +46,6 @@ void process_pcd(const std::shared_ptr<arp_msgs::srv::FormatPosesToPCD::Request>
     if(pcd_sucess) {
 
         std::string fname = "package://arp_reach/poseArray.pcd";
-        #ifdef _WIN32
-            fname = "package://arp_reach\\poseArray.pcd";
-        #endif
 
         PCD_PROCESSING_WRITE_YAML::ProcessYAML::YAMLFileWriter::writeYAML(fname, yaml.c_str());
     }
