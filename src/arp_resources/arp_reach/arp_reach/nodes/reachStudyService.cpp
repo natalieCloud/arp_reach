@@ -44,6 +44,15 @@ T get(const std::shared_ptr<rclcpp::Node> node, const std::string &key)
 int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> request,
         std::shared_ptr<arp_msgs::srv::RunReachStudy::Response> response) {
 
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sucessfully called arp_reach service!");
+
+    if (!request->signal) {
+            
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "State not ready to call service, aborting.");
+        response->sucess = false;
+        return;
+    }
+
     try {
 
         YAML::Node config = YAML::LoadFile(request->yaml.yaml_filepath);
@@ -78,6 +87,8 @@ int main(int argc, char **argv) {
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("arp_reach");
     rclcpp::Service<arp_msgs::srv::RunReachStudy>::SharedPtr service = 
         node->create_service<arp_msgs::srv::RunReachStudy>("run_reach_study", &run_reach);
+
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to run reach study!");
         
     rclcpp::spin(node);
     rclcpp::shutdown();

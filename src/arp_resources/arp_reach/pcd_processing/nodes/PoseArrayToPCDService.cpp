@@ -36,11 +36,6 @@ void process_pcd(const std::shared_ptr<arp_msgs::srv::FormatPosesToPCD::Request>
     bf::path pcd = cwd / "install" / "arp_reach_launch" / "share" / "arp_reach" / "poseArray.pcd";
     bf::path yaml = cwd / "install" / "arp_reach_launch" / "share" / "arp_reach" / "study_config.yaml";
 
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), cwd.c_str());
-
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), pcd.c_str());
-
-
     int pcd_sucess = PCD_PROCESSING_WRITE_PCD::ProcessPCD::PCDFileProcessor::writeFile(request->waypoints, pcd.c_str());
 
     if(pcd_sucess) {
@@ -49,6 +44,7 @@ void process_pcd(const std::shared_ptr<arp_msgs::srv::FormatPosesToPCD::Request>
 
         PCD_PROCESSING_WRITE_YAML::ProcessYAML::YAMLFileWriter::writeYAML(fname, yaml.c_str());
     }
+
    response->yaml.yaml_filepath = yaml.c_str();
    response->sucess = true;
 }
