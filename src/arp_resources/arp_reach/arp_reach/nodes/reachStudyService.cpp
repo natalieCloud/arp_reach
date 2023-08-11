@@ -50,7 +50,7 @@ int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> reque
             
         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "State not ready to call service, aborting.");
         response->sucess = false;
-        return;
+        return 1;
     }
 
     try {

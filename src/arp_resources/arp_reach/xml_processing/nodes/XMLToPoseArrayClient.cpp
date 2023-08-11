@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
     auto request = std::make_shared<arp_msgs::srv::FormatPosesFromXML::Request>();
 
     bf::path cwd = bf::initial_path();
-    bf::path results = cwd / "install" / "reach_ros" / "share" / "reach_ros" / "study" / "study_config" / "reach.db.xml";
+    bf::path results = cwd / "install" / "reach_ros" / "share" / "reach_ros" / "study_config" / "reach.db.xml";
 
     request->xml.xml_filepath = results.c_str();
 
@@ -75,6 +75,7 @@ int main(int argc, char **argv) {
     poseArr.poses.push_back(pose2);
 
     request->waypoints = poseArr;
+    request->signal = true;
 
     while (!client->wait_for_service(1s)) {
         if(!rclcpp::ok()) {
