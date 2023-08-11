@@ -55,7 +55,6 @@ While running the `PCD_Processing` package you'll want to ensure that you have p
 
 [**ARP_Reach_Launch**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_reach/launch)
 - reach_launch.xml: Launches all of the service nodes from `PCD_Processing`, `XML_Processing`, and `ARP_Reach`!
-- state_launch.xml, launches all of the test client nodes in proper order!
 
 [**arp_msgs**](https://github.com/natalieCloud/arp_reach/tree/main/src/arp_resources/arp_msgs) 
 - None Y(^u^)Y
