@@ -32,9 +32,9 @@ void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Reques
         
     try {
 
-        std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml.xml_filepath.c_str());
+        std::map<XML_PROCESSING_POSTRUCTS_H::Postructs::PoseData, XML_PROCESSING_POSTRUCTS_H::Postructs::ResultData> poseMap = XML_PARSING_XML_PARSER_H::ReachXML::XMLParser::parseMap(request->xml.xml_filepath);
         std::vector<double> results = XML_PROCESSING_RESULT_THREADING_H::Scorter::Retriever::getScoreData(request->waypoints, poseMap, request->waypoints.poses.size());
-
+        response->scores = results;
         response->sucess = true;
 
     } catch (const std::exception &ex) {
@@ -46,7 +46,6 @@ void process_xml(const std::shared_ptr<arp_msgs::srv::FormatPosesFromXML::Reques
     }
     
     response->waypoints = request->waypoints;
-    response->scores = results;
 }
 
 /**

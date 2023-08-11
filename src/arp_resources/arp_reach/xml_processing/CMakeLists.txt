@@ -19,6 +19,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(arp_msgs REQUIRED)
+find_package(Boost COMPONENTS system filesystem REQUIRED)
 
 # Add Executables
 add_executable(xml_parse_service nodes/XMLToPoseArrayService.cpp 
@@ -35,6 +36,11 @@ ament_target_dependencies (
 )
 
 add_executable(xml_parse_client nodes/XMLToPoseArrayClient.cpp)
+target_link_libraries(
+    xml_parse_client
+    Boost::system
+    Boost::filesystem
+)
 ament_target_dependencies (
     xml_parse_client
     rclcpp

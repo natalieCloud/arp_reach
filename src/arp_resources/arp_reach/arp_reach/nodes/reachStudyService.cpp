@@ -13,6 +13,10 @@
 
 #include "arp_msgs/srv/run_reach_study.hpp"
 
+#define BOOST_NO_CXX11_SCOPED_ENUMS
+#include "boost/filesystem.hpp"
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
+
 #include <stdlib.h>
 
 #include <chrono>
@@ -21,10 +25,6 @@
 
 #include <yaml-cpp/yaml.h>
 
-// Global **Used rn cause they are not pased as args to the service call! (yet)
-YAML::Node config;
-std::string config_name;
-boost::filesystem::path results_dir;
 
 // **
 // Following block of code was developed by Southwest Research Institute, 2019
@@ -44,17 +44,36 @@ T get(const std::shared_ptr<rclcpp::Node> node, const std::string &key)
 int run_reach(const std::shared_ptr<arp_msgs::srv::RunReachStudy::Request> request,
         std::shared_ptr<arp_msgs::srv::RunReachStudy::Response> response) {
 
-    try {
-        if (!request->signal)
-            throw std::runtime_error("Reach study cannot be run. Signal not recived! :(");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sucessfully called arp_reach service!");
 
-        // TODO: In refactor pass in request params over the launch params! 
-        
+    if (!request->signal) {
+            
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "State not ready to call service, aborting.");
+        response->sucess = false;
+        return 1;
+    }
+
+    try {
+
+        YAML::Node config = YAML::LoadFile(request->yaml.yaml_filepath);
+        std::string config_name = request->config_name;
+        boost::filesystem::path results_dir(request->results_dir);
+
         reach::runReachStudy(config, config_name, results_dir, false);
+
+        response->sucess = true;
+        response->message = "Sucessfully ran reach study!";
+
+        //Get full path to reults dir
+        boost::filesystem::path results_path = absolute(results_dir, boost::filesystem::initial_path());
+
+        response->results.xml_filepath = results_dir.c_str();
 
     } catch (const std::exception &ex) {
 
         std::cerr << ex.what() << std::endl;
+        response->sucess = false;
+        response->message = ex.what();
         return 1;
     }
     return 0;
@@ -65,14 +84,11 @@ int main(int argc, char **argv) {
 
     rclcpp::init(argc, argv);
 
-    config = YAML::LoadFile(get<std::string>(reach_ros::utils::getNodeInstance(), "config_file"));
-    config_name = get<std::string>(reach_ros::utils::getNodeInstance(), "config_name");
-    boost::filesystem::path results(get<std::string>(reach_ros::utils::getNodeInstance(), "results_dir"));
-    results_dir = results;
-
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("arp_reach");
     rclcpp::Service<arp_msgs::srv::RunReachStudy>::SharedPtr service = 
         node->create_service<arp_msgs::srv::RunReachStudy>("run_reach_study", &run_reach);
+
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to run reach study!");
         
     rclcpp::spin(node);
     rclcpp::shutdown();

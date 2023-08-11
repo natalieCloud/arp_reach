@@ -12,6 +12,10 @@
 #include <rclcpp/rclcpp.hpp>
 #include "arp_msgs/srv/run_reach_study.hpp"
 
+#define BOOST_NO_CXX11_SCOPED_ENUMS
+#include "boost/filesystem.hpp"
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
+
 #include <chrono>
 #include <memory>
 
@@ -24,7 +28,7 @@ using namespace std::chrono_literals;
 #include <filesystem>
 #include <stdio.h>
 
-namespace fs = std::filesystem;
+namespace bf = boost::filesystem;
 
 int main(int argc, char **argv) {
 
@@ -35,19 +39,17 @@ int main(int argc, char **argv) {
         node->create_client<arp_msgs::srv::RunReachStudy>("run_reach_study");
 
     auto request = std::make_shared<arp_msgs::srv::RunReachStudy::Request>();
-    auto curr = fs::current_path();
-    const fs::path sub_yaml = "/arp_reach/src/arp_resources/arp_reach/arp_reach/config/study_config.yaml";
-    fs::path curr_yaml = curr / sub_yaml; 
+    
+    bf::path cwd = bf::initial_path();
+    bf::path yaml = cwd / "install" / "arp_reach_launch" / "share" / "arp_reach" / "study_config.yaml";
 
-    std::cout << curr_yaml.c_str() << std::endl;
-
-    request->yaml.yaml_filepath = curr_yaml.c_str();
+    request->yaml.yaml_filepath = yaml.c_str();
 
     request->config_name = "study_config";
 
-    std::string results = "arpaint_project/arp_reach_ws/install/reach_ros/share/reach_ros";
-    std::string resultsdir = getenv("HOME") + results;
-    request->results_dir = resultsdir;
+    bf::path results = cwd / "install" / "reach_ros" / "share" / "reach_ros";
+
+    request->results_dir = results.c_str();
 
     request->signal = true;
     

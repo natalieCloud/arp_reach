@@ -3,6 +3,10 @@
 #include "geometry_msgs/msg/pose.hpp"
 #include "geometry_msgs/msg/pose_array.hpp"
 
+#define BOOST_NO_CXX11_SCOPED_ENUMS
+#include "boost/filesystem.hpp"
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
+
 #include <chrono>
 #include <cstdlib>
 #include <memory>
@@ -12,6 +16,8 @@
 #include <stdlib.h>
 
 using namespace std::chrono_literals; //For timer! Unessesary otherwise!
+namespace bf = boost::filesystem;
+
 
 /**
  * @author Natalie Chmura
@@ -37,10 +43,10 @@ int main(int argc, char **argv) {
     
     auto request = std::make_shared<arp_msgs::srv::FormatPosesFromXML::Request>();
 
-    std::string extension = "/arpaint_pjt/arp_reach_ws/install/arp_reach_launch/share/arp_reach/study_config/reach.db.xml";
-    std::string homedir = getenv("HOME") + extension;
+    bf::path cwd = bf::initial_path();
+    bf::path results = cwd / "install" / "reach_ros" / "share" / "reach_ros" / "study_config" / "reach.db.xml";
 
-    request->xml.xml_filepath = homedir;
+    request->xml.xml_filepath = results.c_str();
 
     auto poseArr = geometry_msgs::msg::PoseArray();
     poseArr.header.frame_id = "world";
@@ -69,6 +75,7 @@ int main(int argc, char **argv) {
     poseArr.poses.push_back(pose2);
 
     request->waypoints = poseArr;
+    request->signal = true;
 
     while (!client->wait_for_service(1s)) {
         if(!rclcpp::ok()) {
